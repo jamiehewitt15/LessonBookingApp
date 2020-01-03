@@ -1,7 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="12d5cd7c-79a4-4baf-9abf-eb8af80a9ba1" name="Default Changelist" comment="" />
+    <list default="true" id="12d5cd7c-79a4-4baf-9abf-eb8af80a9ba1" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Class.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Rating.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Coursework1/META-INF/Coursework1.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Coursework1/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Coursework1/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Coursework1/com/company/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Coursework1/com/company/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Coursework1/com/company/Schedule.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Schedule.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -17,18 +30,24 @@
       </list>
     </option>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectCodeStyleSettingsMigration">
     <option name="version" value="1" />
   </component>
   <component name="ProjectId" id="1VZs1fmm5Fklte29nQi8oYUKHLG" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.SHOW" value="false" />
     <property name="UI_DESIGNER_EDITOR_MODE.UIDesignerToolWindowManager.WIDTH" value="232" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../Repos/Cinema Ticket Booking App 1" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true">
@@ -73,32 +92,48 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state width="417" height="592" key="GridCell.Tab.0.bottom" timestamp="1577794577446">
+    <state x="-1829" y="17" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1577799981503">
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
-    <state width="417" height="592" key="GridCell.Tab.0.bottom/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1577794577446" />
-    <state width="417" height="592" key="GridCell.Tab.0.center" timestamp="1577794577445">
+    <state x="-1829" y="17" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1577799981503" />
+    <state x="-1554" y="149" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1577799978844">
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
-    <state width="417" height="592" key="GridCell.Tab.0.center/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1577794577445" />
-    <state width="417" height="592" key="GridCell.Tab.0.left" timestamp="1577794577444">
+    <state x="-1554" y="149" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1577799978844" />
+    <state x="-1499" y="118" key="FileChooserDialogImpl" timestamp="1578049136600">
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
-    <state width="417" height="592" key="GridCell.Tab.0.left/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1577794577444" />
-    <state width="417" height="592" key="GridCell.Tab.0.right" timestamp="1577794577445">
+    <state x="-1499" y="118" key="FileChooserDialogImpl/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578049136600" />
+    <state width="287" height="592" key="GridCell.Tab.0.bottom" timestamp="1578060854036">
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
-    <state width="417" height="592" key="GridCell.Tab.0.right/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1577794577445" />
-    <state x="-1569" y="131" key="com.intellij.ide.util.TipDialog" timestamp="1577792558945">
+    <state width="287" height="592" key="GridCell.Tab.0.bottom/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578060854036" />
+    <state width="287" height="592" key="GridCell.Tab.0.center" timestamp="1578060854035">
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
-    <state x="-1569" y="131" key="com.intellij.ide.util.TipDialog/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1577792558945" />
+    <state width="287" height="592" key="GridCell.Tab.0.center/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578060854035" />
+    <state width="287" height="592" key="GridCell.Tab.0.left" timestamp="1578060854035">
+      <screen x="-1920" y="0" width="1280" height="720" />
+    </state>
+    <state width="287" height="592" key="GridCell.Tab.0.left/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578060854035" />
+    <state width="287" height="592" key="GridCell.Tab.0.right" timestamp="1578060854036">
+      <screen x="-1920" y="0" width="1280" height="720" />
+    </state>
+    <state width="287" height="592" key="GridCell.Tab.0.right/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578060854036" />
+    <state x="-1569" y="131" key="com.intellij.ide.util.TipDialog" timestamp="1578048050082">
+      <screen x="-1920" y="0" width="1280" height="720" />
+    </state>
+    <state x="-1569" y="131" key="com.intellij.ide.util.TipDialog/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578048050082" />
+    <state x="-1834" y="0" key="new project wizard" timestamp="1578050335929">
+      <screen x="-1920" y="0" width="1280" height="720" />
+    </state>
+    <state x="-1834" y="0" key="new project wizard/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578050335929" />
     <state x="-1613" y="41" key="search.everywhere.popup" timestamp="1577472320010">
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
     <state x="-1613" y="41" key="search.everywhere.popup/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1577472320010" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Coursework1$Main.ic" NAME="Main Coverage Results" MODIFIED="1577792872968" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Coursework1$Main.ic" NAME="Main Coverage Results" MODIFIED="1578060015527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
