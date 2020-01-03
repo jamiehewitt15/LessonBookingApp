@@ -6,13 +6,17 @@ public class Class {
     private int classCapacity = 20;
     private String classTime = "Unspecified";
     private int classPrice = 20;
+    private boolean[] classWeekend = {false, false, false, false};
+    private boolean[] classDay = {false, false};
     private boolean daySaturday = false;
     private boolean daySunday = false;
 
-    public Class(String name, String time, int price, boolean saturday, boolean sunday) {
+    public Class(String name, String time, int price,  boolean[] weekend, boolean[] day, boolean saturday, boolean sunday) {
         this.setClassName(name);
         this.setClassTime(time);
         this.setClassPrice(price);
+        this.setWeekend(weekend);
+        this.setDay(day);
         this.setSaturday(saturday);
         this.setSunday(sunday);
         ///rating=new Rating();
@@ -35,6 +39,11 @@ public class Class {
     {
         this.classPrice = price;
     }
+    public void setWeekend(boolean[] weekend)
+    {
+        this.classWeekend = weekend;
+    }
+    public void setDay(boolean[] day) { this.classDay = day; }
     public void setSaturday(boolean saturday)
     {
         this.daySaturday = saturday;
@@ -46,6 +55,14 @@ public class Class {
     ///public void setRating(Rating rate)
     {
        // this.rating = rate;
+    }
+
+    public boolean getClassDay(int i) {
+        return classDay[i];
+    }
+
+    public boolean getClassWeekend(int i) {
+        return classWeekend[i];
     }
 
     public boolean getSaturday() {

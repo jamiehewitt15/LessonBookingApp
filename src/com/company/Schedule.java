@@ -23,12 +23,12 @@ public class Schedule {
 
     public Schedule() {
 
-        Class english = new Class("English", "9:00", 20, true, false);
-        Class math = new Class("Maths", "15:00", 10, true, true);
-        Class verbalReasoning = new Class("Verbal Reasoning", "19:00", 12, true, true);
-        Class nonVerbalReasoning = new Class("Non-verbal Reasoning", "20:00", 16, true, false);
-        Class science = new Class("Science", "10:00", 15, false, true);
-        Class programming = new Class("Programming", "20:00", 25, false, true);
+        Class english = new Class("English", "9:00", 20, new boolean[]{true, true, true, true}, new boolean[]{true, false}, true, false);
+        Class math = new Class("Maths", "15:00", 10, new boolean[]{true, true, true, true}, new boolean[]{true, true}, true, true);
+        Class verbalReasoning = new Class("Verbal Reasoning", "19:00", 12, new boolean[]{true, true, true, true}, new boolean[]{true, true}, true, true);
+        Class nonVerbalReasoning = new Class("Non-verbal Reasoning", "20:00", 16, new boolean[]{true, true, true, true}, new boolean[]{true, false}, true, false);
+        Class science = new Class("Science", "10:00", 15, new boolean[]{true, true, true, true}, new boolean[]{false, true}, false, true);
+        Class programming = new Class("Programming", "20:00", 25, new boolean[]{true, true, true, true}, new boolean[]{false, true}, false, true);
 
         schedule[0] = english;
         schedule[1] = math;
@@ -43,31 +43,46 @@ public class Schedule {
     static void book() {
 
         Schedule menuClasses = new Schedule();
-        Scanner classDay = new Scanner(System.in);  // Create a Scanner object
-        System.out.println("\nWhat day would you like to book your class on?\n1 : Saturday\n2 : Sunday");
-        int classDayChoice = classDay.nextInt();  // Read user input
-        int count = 1;
-        switch(classDayChoice) {
+        Scanner classWeekend = new Scanner(System.in);  // Create a Scanner object
+        System.out.println("\nWhich weekend would you like to book your class on?" +
+                "\n1 : 1st & 2nd February\n2 : 8th & 9th February\n3 : 15th & 16th February\n4 : 22nd & 23rd February");
+        int weekendChoice = (classWeekend.nextInt() - 1);
 
-            case 1:
-                System.out.println("Sunday schedule:"); // code block
-                for (int i = 0; i < menuClasses.schedule.length; i++) {
-                    if (menuClasses.schedule[i].getSaturday()) {
-                    System.out.println("\n"+ count + " : " + menuClasses.schedule[i].getClassName() + " at " + menuClasses.schedule[i].getClassTime() + " | Cost: £" + menuClasses.schedule[i].getClassPrice());
-                    count++;
-                    }
-                }
-                break;
-            case 2:
-                System.out.println("Saturday schedule:"); // code block
-                for (int i = 0; i < menuClasses.schedule.length; i++) {
-                    if (menuClasses.schedule[i].getSunday()) {
-                        System.out.println("\n"+ count + " : " + menuClasses.schedule[i].getClassName() + " at " + menuClasses.schedule[i].getClassTime() + " | Cost: £" + menuClasses.schedule[i].getClassPrice());
-                        count++;
-                    }
-                }
-                break;
+        System.out.println("\nWhat day would you like to book your class on?\n1 : Saturday\n2 : Sunday");
+        Scanner classDay = new Scanner(System.in);  // Create a Scanner object
+        int classDayChoice = (classDay.nextInt() - 1);  // Read user input
+        int count = 1;
+
+        System.out.println("\nSchedule:"); // code block
+        for (int i = 0; i < menuClasses.schedule.length; i++) {
+            if (menuClasses.schedule[i].getClassDay(classDayChoice) && menuClasses.schedule[i].getClassWeekend(weekendChoice)) {
+                System.out.println("\n"+ count + " : " + menuClasses.schedule[i].getClassName() + " at " + menuClasses.schedule[i].getClassTime() + " | Cost: £" + menuClasses.schedule[i].getClassPrice());
+                count++;
+            }
         }
+
+
+//        switch(classDayChoice) {
+//
+//            case 1:
+//                System.out.println("Sunday schedule:"); // code block
+//                for (int i = 0; i < menuClasses.schedule.length; i++) {
+//                    if (menuClasses.schedule[i].getSaturday() && menuClasses.schedule[i].getClassWeekend(weekendChoice)) {
+//                    System.out.println("\n"+ count + " : " + menuClasses.schedule[i].getClassName() + " at " + menuClasses.schedule[i].getClassTime() + " | Cost: £" + menuClasses.schedule[i].getClassPrice());
+//                    count++;
+//                    }
+//                }
+//                break;
+//            case 2:
+//                System.out.println("Saturday schedule:"); // code block
+//                for (int i = 0; i < menuClasses.schedule.length; i++) {
+//                    if (menuClasses.schedule[i].getSunday()&& menuClasses.schedule[i].getClassWeekend(weekendChoice)) {
+//                        System.out.println("\n"+ count + " : " + menuClasses.schedule[i].getClassName() + " at " + menuClasses.schedule[i].getClassTime() + " | Cost: £" + menuClasses.schedule[i].getClassPrice());
+//                        count++;
+//                    }
+//                }
+//                break;
+//        }
 
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("\nEnter the number to book the class:");
