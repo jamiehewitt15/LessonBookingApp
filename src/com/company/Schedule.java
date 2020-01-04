@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class Schedule {
     public static final int MaxClassesPerDay = 4; // Maximum number of classes per day
-    private final int classCapacity = 20; // Maximum number of people in a class
+    private static final int classCapacity = 5; // Maximum number of people in a class
     public static String[] openDays = {   "Saturday, 1st February", "Sunday, 2nd February",
                             "Saturday, 8th February",  "Sunday, 9th February",
                             "Saturday, 15th February", "Sunday, 16th February",
@@ -15,7 +15,7 @@ public class Schedule {
     public static Class[]  schedule = new Class[12];
 
 
-    public Schedule() {
+    public static void initiateSchedule() {
 
         Class english = new Class("English", "9:00", 20, new boolean[]{true, false, true, false, false, false, false, false});
         Class maths = new Class("Maths", "15:00", 10, new boolean[]{true, true, true, true, false, false, false, false});
@@ -50,27 +50,26 @@ public class Schedule {
 
     static void book() {
 
-        Schedule menuClasses = new Schedule();
+
         Scanner classDay = new Scanner(System.in);  // Create a Scanner object
         System.out.println("\nWhat day would you like to book your class on?\n");
         int dayCount = 1;
-        for (String i : menuClasses.openDays) {
+        for (String i : openDays) {
             System.out.println(dayCount +": "+i); // Show options for days when classes can be booked.
             dayCount++;
         }
-        int dayChoice = (classDay.nextInt() - 1);
-//
-//        System.out.println("\nWhat day would you like to book your class on?\n1 : Saturday\n2 : Sunday");
-//        Scanner classDay = new Scanner(System.in);  // Create a Scanner object
-//        int classDayChoice = (classDay.nextInt() - 1);  // Read user input
-//
+
+        DataValidator dayInputTest = new DataValidator(1, openDays.length);  // Create a DataValidator object
+        if(classDay.hasNextInt()) {} else {dayInputTest.errorMessage();} // Test if input is an integer
+        int dayChoice = (classDay.nextInt() - 1); // Saving input as an integer
+        dayInputTest.testBoundary(dayChoice); // Test if input is within the boundary
+
         int count = 1;
 
-
         System.out.println("\nSchedule:"); // code block
-        for (int i = 0; i < menuClasses.schedule.length; i++) {
-            if ((menuClasses.schedule[i].getClassDay(dayChoice) == true) && (count <= menuClasses.MaxClassesPerDay)) {
-                  System.out.println("\n"+ i + " : " + menuClasses.schedule[i].getClassName() + " at " + menuClasses.schedule[i].getClassTime() + " | Cost: £" + menuClasses.schedule[i].getClassPrice());
+        for (int i = 0; i < schedule.length; i++) {
+            if ((schedule[i].getClassDay(dayChoice) == true) && (count <= MaxClassesPerDay) && (schedule[i].getClassAttendance(dayChoice) < classCapacity) ) {
+                  System.out.println("\n"+ i + " : " + schedule[i].getClassName() + " at " + schedule[i].getClassTime() + " | Cost: £" + schedule[i].getClassPrice());
                   count++;
                 }
 
@@ -78,23 +77,21 @@ public class Schedule {
 
 
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+
         System.out.println("\nEnter the number to book the class:");
 
-        int classChoice = myObj.nextInt();  // Read user input
-        menuClasses.schedule[classChoice].increaseClassAttendance(dayChoice);
+        DataValidator classInputTest = new DataValidator(0, schedule.length);  // Create a DataValidator object
+        if(classDay.hasNextInt()) {} else {classInputTest.errorMessage();} // Test if input is an integer
+        int classChoice = myObj.nextInt();  // Read user input & Saving input as an integer
+        dayInputTest.testBoundary(dayChoice); // Test if input is within the boundary
 
-        try {
+        schedule[classChoice].increaseClassAttendance(dayChoice);
+
             System.out.println("\n-------------------------------------------------" +
-                    "\nYou have booked class: " + menuClasses.schedule[classChoice].getClassName() + " at " + menuClasses.schedule[classChoice].getClassTime()
-                    + "\nDate: " + menuClasses.openDays[dayChoice]
-                    +  "\nThe price will be: £" + menuClasses.schedule[classChoice].getClassPrice()
+                    "\nYou have booked class: " + schedule[classChoice].getClassName() + " at " + schedule[classChoice].getClassTime()
+                    + "\nDate: " + openDays[dayChoice]
+                    +  "\nThe price will be: £" + schedule[classChoice].getClassPrice()
                     + "\n-------------------------------------------------");  // Output user input
-        } catch (Exception e){
-            System.out.println("Sorry, that command wasn't recognised.\nPlease enter one of the numbers that corresponds to a class.");
-            book();
-        }
-
-
 
 
     }
