@@ -5,16 +5,14 @@ import java.util.Scanner;
 
 
 public class Schedule {
-    private final int MaxClassesPerDay = 4; // Maximum number of classes per day
+    public static final int MaxClassesPerDay = 4; // Maximum number of classes per day
     private final int classCapacity = 20; // Maximum number of people in a class
-    String[] openDays = {   "Saturday, 1st February", "Sunday, 2nd February",
+    public static String[] openDays = {   "Saturday, 1st February", "Sunday, 2nd February",
                             "Saturday, 8th February",  "Sunday, 9th February",
                             "Saturday, 15th February", "Sunday, 16th February",
                             "Saturday, 22nd February","Sunday, 23nd February"
                         };
-
-
-    private Class[] schedule = new Class[12];
+    public static Class[]  schedule = new Class[12];
 
 
     public Schedule() {
@@ -44,6 +42,8 @@ public class Schedule {
         schedule[9] = economics;
         schedule[10] = geography;
         schedule[11] = physics;
+
+
     }
 
 
@@ -81,6 +81,7 @@ public class Schedule {
         System.out.println("\nEnter the number to book the class:");
 
         int classChoice = myObj.nextInt();  // Read user input
+        menuClasses.schedule[classChoice].increaseClassAttendance(dayChoice);
 
         try {
             System.out.println("\n-------------------------------------------------" +

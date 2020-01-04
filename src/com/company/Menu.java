@@ -2,7 +2,7 @@ package com.company;
 
 import java.util.Scanner;
 import static com.company.Customer.login;
-import static com.company.Schedule.book;
+import static com.company.Schedule.*;
 
 public class Menu {
 
@@ -22,6 +22,20 @@ public class Menu {
                 repeatMenu();
                 break;
             case 3:
+                System.out.println("Class attendance is shown below");//
+                for (int i = 0; i < openDays.length; i++) {
+                    int count = 1;
+                    System.out.println("\n" + openDays[i]); // Show options for days when classes can be booked.
+                    for (int j = 0; j < schedule.length; j++) {
+                        if ((schedule[j].getClassDay(i) == true) && (count <= MaxClassesPerDay)) {
+                            System.out.println(schedule[j].getClassName() + " attendance: " + schedule[j].getClassAttendance(i) );
+                            count++;
+                        }
+
+                    }
+
+                }
+                repeatMenu();
 
                 break;
             case 4:

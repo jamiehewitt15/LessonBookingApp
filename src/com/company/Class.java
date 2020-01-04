@@ -35,6 +35,7 @@ public class Class {
         this.classPrice = price;
     }
     public void setDay(boolean[] day) { this.classDay = day; }
+    public void increaseClassAttendance(int i) { this.classAttendance[i]++; }
     ///public void setRating(Rating rate)
     {
        // this.rating = rate;
