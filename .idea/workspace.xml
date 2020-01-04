@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="12d5cd7c-79a4-4baf-9abf-eb8af80a9ba1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Coursework1/com/company/Class.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Coursework1/com/company/Class.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Coursework1/com/company/Schedule.class" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Class.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Schedule.java" afterDir="false" />
     </list>
@@ -13,6 +15,9 @@
   </component>
   <component name="CodeStyleSettingsInfer">
     <option name="done" value="true" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="175" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -95,26 +100,26 @@
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
     <state x="-1499" y="118" key="FileChooserDialogImpl/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578049136600" />
-    <state width="186" height="592" key="GridCell.Tab.0.bottom" timestamp="1578064079914">
+    <state width="1367" height="710" key="GridCell.Tab.0.bottom" timestamp="1578133101108">
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
-    <state width="186" height="592" key="GridCell.Tab.0.bottom/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578064079914" />
-    <state width="186" height="592" key="GridCell.Tab.0.center" timestamp="1578064079914">
+    <state width="1367" height="710" key="GridCell.Tab.0.bottom/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578133101108" />
+    <state width="1367" height="710" key="GridCell.Tab.0.center" timestamp="1578133101107">
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
-    <state width="186" height="592" key="GridCell.Tab.0.center/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578064079914" />
-    <state width="186" height="592" key="GridCell.Tab.0.left" timestamp="1578064079914">
+    <state width="1367" height="710" key="GridCell.Tab.0.center/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578133101107" />
+    <state width="1367" height="710" key="GridCell.Tab.0.left" timestamp="1578133101107">
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
-    <state width="186" height="592" key="GridCell.Tab.0.left/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578064079914" />
-    <state width="186" height="592" key="GridCell.Tab.0.right" timestamp="1578064079914">
+    <state width="1367" height="710" key="GridCell.Tab.0.left/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578133101107" />
+    <state width="1367" height="710" key="GridCell.Tab.0.right" timestamp="1578133101107">
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
-    <state width="186" height="592" key="GridCell.Tab.0.right/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578064079914" />
-    <state x="-1569" y="131" key="com.intellij.ide.util.TipDialog" timestamp="1578048050082">
+    <state width="1367" height="710" key="GridCell.Tab.0.right/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578133101107" />
+    <state x="-1569" y="131" key="com.intellij.ide.util.TipDialog" timestamp="1578128415924">
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
-    <state x="-1569" y="131" key="com.intellij.ide.util.TipDialog/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578048050082" />
+    <state x="-1569" y="131" key="com.intellij.ide.util.TipDialog/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578128415924" />
     <state x="-1834" y="0" key="new project wizard" timestamp="1578050335929">
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
@@ -125,6 +130,6 @@
     <state x="-1613" y="41" key="search.everywhere.popup/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1577472320010" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/Coursework1$Main.ic" NAME="Main Coverage Results" MODIFIED="1578060015527" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+    <SUITE FILE_PATH="coverage/Coursework1$Main.ic" NAME="Main Coverage Results" MODIFIED="1578130284310" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
   </component>
 </project>
