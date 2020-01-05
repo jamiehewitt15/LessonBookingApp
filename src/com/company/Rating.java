@@ -35,7 +35,7 @@ public class Rating {
         this.average = sum / ratings.size(); }
 
     public static void ratingString(int x){
-        System.out.println(schedule[x].getClassName() + " has an average rating of " + schedule[x].getRating().getAverage() + " after " + schedule[x].getRating().getNumOfRatings() + " reviews.");
+        System.out.println(schedule[x].getClassName() + "\n\t->\tAverage rating: " + schedule[x].getRating().getAverage() + " | Number of reviews: " + schedule[x].getRating().getNumOfRatings() + " reviews.");
     }
 
 }

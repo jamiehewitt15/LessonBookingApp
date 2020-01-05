@@ -86,12 +86,14 @@ public class Schedule {
         DataValidator classInputTest = new DataValidator(0, schedule.length);  // Create a DataValidator object
         if(classScanner.hasNextInt()) {} else {classInputTest.errorMessage();} // Test if input is an integer
         int classChoice = classScanner.nextInt();  // Read user input & Saving input as an integer
-        System.out.println("\nTest if input is within the boundary");
         classInputTest.testBoundary(classChoice); // Test if input is within the boundary
-        System.out.println("\nTest successful");
 
 
-        schedule[classChoice].increaseClassAttendance(dayChoice);
+
+        schedule[classChoice].increaseClassAttendance(dayChoice); // Update attendance for this class on the chosen day
+        schedule[classChoice].setTotalAttendance(); // Update overall attendance count for this class
+        schedule[classChoice].setEarnings(); // Update overall earnings generated from this class
+
 
         System.out.println("\n-------------------------------------------------" +
                     "\nYou have booked class: " + schedule[classChoice].getClassName() + " at " + schedule[classChoice].getClassTime()

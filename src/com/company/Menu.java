@@ -57,7 +57,7 @@ public class Menu {
                 repeatMenu();
                 break;
             case 3:
-                System.out.println("What type of report would you like?\n1: Highest earning classes\n2: Full attendance report\n3: Average class ratings");
+                System.out.println("\nWhat type of report would you like?\n1: Highest earning classes\n2: Attendance report\n3: Average class ratings");
 
                 Scanner reportScan = new Scanner(System.in);  // Create a Scanner object
                 DataValidator reportInputValid = new DataValidator(1, 3);  // Create a DataValidator object
@@ -67,7 +67,7 @@ public class Menu {
 
                 switch (reportChoice){
                     case 1:
-
+                        earningsReport();
                         break;
                     case 2:
                         attendanceReport();
