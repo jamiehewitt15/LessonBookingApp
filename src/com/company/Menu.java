@@ -3,6 +3,7 @@ package com.company;
 import java.util.Scanner;
 import static com.company.Customer.login;
 import static com.company.Rating.ratingString;
+import static com.company.Report.*;
 import static com.company.Schedule.*;
 
 
@@ -56,22 +57,26 @@ public class Menu {
                 repeatMenu();
                 break;
             case 3:
-                System.out.println("What type of report would you like?");
+                System.out.println("What type of report would you like?\n1: Highest earning classes\n2: Full attendance report\n3: Average class ratings");
 
+                Scanner reportScan = new Scanner(System.in);  // Create a Scanner object
+                DataValidator reportInputValid = new DataValidator(1, 3);  // Create a DataValidator object
+                if(reportScan.hasNextInt()) {} else {reportInputValid.errorMessage();} // Test if input is an integer
+                int reportChoice = reportScan.nextInt(); // Saving input as an integer
+                reportInputValid.testBoundary(reportChoice); // Test if input is within the boundary
 
-                System.out.println("Class attendance is shown below");//
-                for (int i = 0; i < openDays.length; i++) {
-                    int count = 1;
-                    System.out.println("\nClass attendance on: " + openDays[i]); // Show options for days when classes can be booked.
-                    for (int j = 0; j < schedule.length; j++) {
-                        if ((schedule[j].getClassDay(i) == true) && (count <= MaxClassesPerDay)) {
-                            System.out.println(schedule[j].getClassName() + ": " + schedule[j].getClassAttendance(i) );
-                            count++;
-                        }
+                switch (reportChoice){
+                    case 1:
 
-                    }
-
+                        break;
+                    case 2:
+                        attendanceReport();
+                        break;
+                    case 3:
+                        ratingReport();
+                        break;
                 }
+
                 repeatMenu();
 
                 break;
@@ -91,7 +96,7 @@ public class Menu {
     }
 
     static void repeatMenu(){
-        System.out.println("\nWould you like to continue?\n1 : Show main menu\n2 : Exit");  // Output user input
+        System.out.println("\n\nWould you like to continue?\n1 : Show main menu\n2 : Exit");  // Output user input
         Scanner menuInput = new Scanner(System.in);  // Create a Scanner object
 
         DataValidator menuInputTest = new DataValidator(1,2);  // Create a DataValidator object
