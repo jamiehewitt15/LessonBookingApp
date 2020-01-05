@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.ArrayList;
+
 public class Class {
     private String className;
     ///private Rating rating;
@@ -7,6 +9,7 @@ public class Class {
     private int classPrice = 20;
     private boolean[] classDay = {false, false, false, false, false, false, false, false};
     private int[] classAttendance = {0, 0, 0, 0, 0, 0, 0, 0};
+    private Rating ratings;
 
 
     public Class(String name, String time, int price,  boolean[] day) {
@@ -14,12 +17,13 @@ public class Class {
         this.setClassTime(time);
         this.setClassPrice(price);
         this.setDay(day);
-        ///rating=new Rating();
+        this.ratings = new Rating();
+
     }
 
     public Class(){
         this.className = "Unknown";
-        ///this.rating = new Rating();
+        this.ratings = new Rating();
     }
 
     public void setClassName(String name)
@@ -36,10 +40,7 @@ public class Class {
     }
     public void setDay(boolean[] day) { this.classDay = day; }
     public void increaseClassAttendance(int i) { this.classAttendance[i]++; }
-    ///public void setRating(Rating rate)
-    {
-       // this.rating = rate;
-    }
+    public void setRating(Rating i){ this.ratings = i; }
 
     public boolean getClassDay(int i) { return this.classDay[i]; }
     public int getClassAttendance(int i) { return this.classAttendance[i]; }
@@ -52,12 +53,7 @@ public class Class {
     public String getClassTime() {
         return this.classTime;
     }
-
-    //public Rating getRating()
-    {
-
-       /// return this.rating;
-    }
+    public Rating getRating() {return this.ratings; }
 
 
 

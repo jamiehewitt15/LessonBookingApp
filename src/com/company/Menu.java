@@ -2,7 +2,9 @@ package com.company;
 
 import java.util.Scanner;
 import static com.company.Customer.login;
+import static com.company.Rating.ratingString;
 import static com.company.Schedule.*;
+
 
 public class Menu {
 
@@ -22,11 +24,41 @@ public class Menu {
                 repeatMenu();
                 break;
             case 2:
-                System.out.println("Please type your review");// code block
-                System.out.println("Thank you for your review");// code block
+
+                System.out.println("\nWhich class would you like to review?\n");// code block
+                int classCount = 1;
+                for (Class classObject : schedule) {
+                    System.out.println(classCount +": "+ classObject.getClassName() ); // Show options for days when classes can be booked.
+                    classCount++;
+                }
+
+                Scanner classScan = new Scanner(System.in);  // Create a Scanner object
+                DataValidator classRatingValid = new DataValidator(1, schedule.length);  // Create a DataValidator object
+                if(classScan.hasNextInt()) {} else {classRatingValid.errorMessage();} // Test if input is an integer
+                Integer ratingSelect = classScan.nextInt() - 1; // Saving input as an integer
+                classRatingValid.testBoundary((ratingSelect + 1)); // Test if input is within the boundary
+
+
+                System.out.println("\nPlease type your review (1-5)\n1: Very dissatisfied\n2: Dissatisfied\n3: Ok\n4: Satisfied\n5: Very Satisfied");// code block
+
+
+                Scanner ratingScan = new Scanner(System.in);  // Create a Scanner object
+                DataValidator ratingInputValid = new DataValidator(1, 5);  // Create a DataValidator object
+                if(ratingScan.hasNextInt()) {} else {ratingInputValid.errorMessage();} // Test if input is an integer
+                Integer ratingInput = ratingScan.nextInt(); // Saving input as an integer
+                ratingInputValid.testBoundary(ratingInput); // Test if input is within the boundary
+
+                schedule[ratingSelect].getRating().addRating(ratingInput); // Add the rating and update the average.
+
+                System.out.println("\nThank you for your review.\nYou have rated " + schedule[ratingSelect].getClassName() + " " + ratingInput + " out of 5");// Show rating in output
+                ratingString(ratingSelect);
+
                 repeatMenu();
                 break;
             case 3:
+                System.out.println("What type of report would you like?");
+
+
                 System.out.println("Class attendance is shown below");//
                 for (int i = 0; i < openDays.length; i++) {
                     int count = 1;

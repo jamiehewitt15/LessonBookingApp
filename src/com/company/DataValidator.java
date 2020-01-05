@@ -34,7 +34,7 @@ public class DataValidator {
     }
 
     public void testBoundary(int x){
-        if (x <= lowerBoundary && x <= upperBoundary){ } else {
+        if (x >= lowerBoundary && x <= upperBoundary){ } else {
             errorMessage();
         }
     }

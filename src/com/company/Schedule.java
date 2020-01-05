@@ -1,5 +1,6 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
@@ -12,6 +13,7 @@ public class Schedule {
                             "Saturday, 15th February", "Sunday, 16th February",
                             "Saturday, 22nd February","Sunday, 23nd February"
                         };
+
     public static Class[]  schedule = new Class[12];
 
 
@@ -62,7 +64,7 @@ public class Schedule {
         DataValidator dayInputTest = new DataValidator(1, openDays.length);  // Create a DataValidator object
         if(classDay.hasNextInt()) {} else {dayInputTest.errorMessage();} // Test if input is an integer
         int dayChoice = (classDay.nextInt() - 1); // Saving input as an integer
-        dayInputTest.testBoundary(dayChoice); // Test if input is within the boundary
+        dayInputTest.testBoundary(dayChoice + 1); // Test if input is within the boundary
 
         int count = 1;
 
@@ -76,18 +78,22 @@ public class Schedule {
         }
 
 
-        Scanner myObj = new Scanner(System.in);  // Create a Scanner object
+
 
         System.out.println("\nEnter the number to book the class:");
 
+        Scanner classScanner = new Scanner(System.in);  // Create a Scanner object
         DataValidator classInputTest = new DataValidator(0, schedule.length);  // Create a DataValidator object
-        if(classDay.hasNextInt()) {} else {classInputTest.errorMessage();} // Test if input is an integer
-        int classChoice = myObj.nextInt();  // Read user input & Saving input as an integer
-        dayInputTest.testBoundary(dayChoice); // Test if input is within the boundary
+        if(classScanner.hasNextInt()) {} else {classInputTest.errorMessage();} // Test if input is an integer
+        int classChoice = classScanner.nextInt();  // Read user input & Saving input as an integer
+        System.out.println("\nTest if input is within the boundary");
+        classInputTest.testBoundary(classChoice); // Test if input is within the boundary
+        System.out.println("\nTest successful");
+
 
         schedule[classChoice].increaseClassAttendance(dayChoice);
 
-            System.out.println("\n-------------------------------------------------" +
+        System.out.println("\n-------------------------------------------------" +
                     "\nYou have booked class: " + schedule[classChoice].getClassName() + " at " + schedule[classChoice].getClassTime()
                     + "\nDate: " + openDays[dayChoice]
                     +  "\nThe price will be: £" + schedule[classChoice].getClassPrice()
