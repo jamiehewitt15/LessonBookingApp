@@ -13,10 +13,7 @@ public class Main {
     public static void main(String[] args) {
 	// Introduction code
         initiateSchedule();
-        ArrayList<String> Users = new ArrayList<String>();
-        String name = login();
-        Users.add(name);
-        System.out.println(Users);
+        login();
         menu();
 
 

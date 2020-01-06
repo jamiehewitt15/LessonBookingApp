@@ -14,15 +14,16 @@ public class Menu {
         System.out.println("\nEnter the number to select:\n1 : Book Class\n2 : Enter review\n3 : Show Report\n4 : Change user\n5 : Close programme");  // Output user input
         Scanner menuInput = new Scanner(System.in);  // Create a Scanner object
 
+        // Test for valid user input
         DataValidator menuInputTest = new DataValidator(1,5);  // Create a DataValidator object
         if(menuInput.hasNextInt()) {} else {menuInputTest.errorMessage();} // Test if input is an integer
         Integer menuSelect = menuInput.nextInt(); // Saving input as an integer
         menuInputTest.testBoundary(menuSelect); // Test if input is within the boundary
 
         switch(menuSelect) {
-            case 1:
-                book();
-                repeatMenu();
+            case 1: // book a class
+                book(); // run book() method from Schedule
+                menu();
                 break;
             case 2:
 
@@ -33,6 +34,7 @@ public class Menu {
                     classCount++;
                 }
 
+                // Test for valid user input
                 Scanner classScan = new Scanner(System.in);  // Create a Scanner object
                 DataValidator classRatingValid = new DataValidator(1, schedule.length);  // Create a DataValidator object
                 if(classScan.hasNextInt()) {} else {classRatingValid.errorMessage();} // Test if input is an integer
@@ -42,7 +44,7 @@ public class Menu {
 
                 System.out.println("\nPlease type your review (1-5)\n1: Very dissatisfied\n2: Dissatisfied\n3: Ok\n4: Satisfied\n5: Very Satisfied");// code block
 
-
+                // Test for valid user input
                 Scanner ratingScan = new Scanner(System.in);  // Create a Scanner object
                 DataValidator ratingInputValid = new DataValidator(1, 5);  // Create a DataValidator object
                 if(ratingScan.hasNextInt()) {} else {ratingInputValid.errorMessage();} // Test if input is an integer
@@ -51,20 +53,25 @@ public class Menu {
 
                 schedule[ratingSelect].getRating().addRating(ratingInput); // Add the rating and update the average.
 
-                System.out.println("\nThank you for your review.\nYou have rated " + schedule[ratingSelect].getClassName() + " " + ratingInput + " out of 5");// Show rating in output
+                System.out.println("\nThank you for your review.\nYou have rated " + schedule[ratingSelect].getClassName() + " " + ratingInput + " out of 5\n");// Show rating in output
                 ratingString(ratingSelect);
 
-                repeatMenu();
+                menu();
                 break;
-            case 3:
+
+            case 3: // Option for reports
+
+                // Sub-menu for the type of report
                 System.out.println("\nWhat type of report would you like?\n1: Highest earning classes\n2: Attendance report\n3: Average class ratings");
 
+                // Test for valid user input
                 Scanner reportScan = new Scanner(System.in);  // Create a Scanner object
                 DataValidator reportInputValid = new DataValidator(1, 3);  // Create a DataValidator object
                 if(reportScan.hasNextInt()) {} else {reportInputValid.errorMessage();} // Test if input is an integer
                 int reportChoice = reportScan.nextInt(); // Saving input as an integer
                 reportInputValid.testBoundary(reportChoice); // Test if input is within the boundary
 
+                // Switch statement selects the different report options
                 switch (reportChoice){
                     case 1:
                         earningsReport();
@@ -77,26 +84,26 @@ public class Menu {
                         break;
                 }
 
-                repeatMenu();
+                menu();
 
                 break;
-            case 4:
+            case 4: // Change user
                 System.out.println("Welcome!");// code block
                 login();
                 menu();
                 break;
-            case 5:
-                System.out.println("Thank you, goodbye!");// code block
+            case 5: // Option to quit
+                quit();
 
                 break;
-            default:
-                System.out.println("Sorry that command isn't recognised"); // code block
+            default:  // Default option provides redundancy as the data validator should stop other input.
+                System.out.println("Sorry that command isn't recognised"); // print message
                 menu();
         }
     }
 
-    static void repeatMenu(){
-        System.out.println("\n\nWould you like to continue?\n1 : Show main menu\n2 : Exit");  // Output user input
+    static void quit(){
+        System.out.println("\n\nAre you sure you would like to quit?\nYou may lose unsaved information\n1 : Show main menu\n2 : Exit");  // Output user input
         Scanner menuInput = new Scanner(System.in);  // Create a Scanner object
 
         DataValidator menuInputTest = new DataValidator(1,2);  // Create a DataValidator object

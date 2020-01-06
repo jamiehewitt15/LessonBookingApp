@@ -6,7 +6,7 @@ import static com.company.Schedule.schedule;
 
 public class Class {
     private String className; // Name of the ETC class.
-    private String classTime = "Unspecified"; // Time of day that the class runs.
+    private int classTime = 0; // Time of day that the class runs.
     private int classPrice = 20; // cost of attending the class
     private boolean[] classDay = {false, false, false, false, false, false, false, false}; // Timetable of days when class is running
     private int[] classAttendance = {0, 0, 0, 0, 0, 0, 0, 0}; // attendance count for the class on each day
@@ -15,7 +15,8 @@ public class Class {
     private int earnings = 0; // Earnings from the class = classPrice * totalAttendance
 
 
-    public Class(String name, String time, int price,  boolean[] day) {
+
+    public Class(String name, int time, int price,  boolean[] day) {
         this.setClassName(name);
         this.setClassTime(time);
         this.setClassPrice(price);
@@ -34,7 +35,7 @@ public class Class {
     {
         this.className = name;
     }
-    public void setClassTime(String time)
+    public void setClassTime(int time)
     {
         this.classTime = time;
     }
@@ -56,7 +57,7 @@ public class Class {
     public int getClassPrice() {
         return this.classPrice;
     }
-    public String getClassTime() {
+    public int getClassTime() {
         return this.classTime;
     }
     public Rating getRating() {return this.ratings; }
