@@ -14,7 +14,7 @@ public class Menu {
 
     static void menu() {
 
-        System.out.println("\n\nEnter the number to select:\n1 : Book Class\n2 : Enter review\n3 : Show Report\n4 : Change user\n5 : Change class booking\n6 : Close programme");  // Output user input
+        System.out.println("\n\nEnter the number to select:\n1 : Book Class\n2 : Enter review\n3 : Show Report\n4 : Change user\n5 : Cancel class booking\n6 : Close programme");  // Output user input
         Scanner menuInput = new Scanner(System.in);  // Create a Scanner object
 
         // Test for valid user input
@@ -99,13 +99,14 @@ public class Menu {
                 System.out.println("\nSelect the booking you would like to cancel and then book another class:");// code block
 
                 ArrayList<int[]> deleteOptions = new ArrayList<int[]>(); // Create an ArrayList object to store all of the options
-                int count = 1;
+                int count = 1; // count how many options there are
+                // print all of the classes that the current student is enrolled in
                 for (int i = 0; i < schedule.length; ++i) {
                     for (int j = 0; j < schedule[i].getClassStudents().length; ++j) {
                         for (int k = 0; k < classCapacity; ++k) {
                             if (schedule[i].getClassStudents(j, k) == customerList.get(customerList.size() - 1)){
                                 System.out.println(count + " : " + schedule[i].getClassName() + " on " + getOpenDays(j) + " at " + schedule[i].getClassTime() + ":00");// Print classes
-                                deleteOptions.add(new int[]{count, i, j, k});
+                                deleteOptions.add(new int[]{count, i, j, k}); // add the available classes to the deleteOptions array List
                                 count++;
                             }
 
@@ -115,26 +116,45 @@ public class Menu {
 
                 // Test for valid user input
                 Scanner deleteScan = new Scanner(System.in);  // Create a Scanner object
-                DataValidator deleteInputValid = new DataValidator(1, 5);  // Create a DataValidator object
+                DataValidator deleteInputValid = new DataValidator(1, (schedule.length*8*MaxClassesPerDay));  // Create a DataValidator object
                 if(deleteScan.hasNextInt()) {} else {deleteInputValid.errorMessage();} // Test if input is an integer
                 int deleteChoice = deleteScan.nextInt(); // Saving input as an integer
                 deleteInputValid.testBoundary(deleteChoice); // Test if input is within the boundary
 
                 for (int i = 0; i < deleteOptions.size(); ++i) {
                    if(deleteChoice == deleteOptions.get(deleteChoice-1)[0]){
-
+                       // decrease the total attendance count for the selected class
                        schedule[deleteOptions.get(deleteChoice-1)[1]].decreaseTotalAttendance();
+                       // decrease the attendance count for the selected class on the specific name
                        schedule[deleteOptions.get(deleteChoice-1)[1]].decreaseClassAttendance(deleteOptions.get(deleteChoice-1)[2]);
+                       // remove the students name from the list of attendees for this class on thi day
                        schedule[deleteOptions.get(deleteChoice-1)[1]].removeStudent(deleteOptions.get(deleteChoice-1)[2], deleteOptions.get(deleteChoice-1)[3]);
                    }
                 }
 
+                // Print message to confirm class booking has been cancelled.
                 System.out.println("You have been removed from " + schedule[deleteOptions.get(deleteChoice-1)[1]].getClassName() + " on " + getOpenDays(deleteOptions.get(deleteChoice-1)[1]) + " at " + schedule[deleteOptions.get(deleteChoice-1)[1]].getClassTime() + ":00");// Print classes
-                System.out.println("\nBook another class:");
+                // Give user the opportunity to book another class
+                System.out.println("\nWould you like to book another class:\n1 : Yes\n2 : No");
+
+                Scanner reBookScan = new Scanner(System.in);  // Create a Scanner object
+                // Test for valid user input
+                DataValidator reBookInputValid = new DataValidator(1, 2);  // Create a DataValidator object
+                if(reBookScan.hasNextInt()) {} else {reBookInputValid.errorMessage();} // Test if input is an integer
+                int reBookChoice = reBookScan.nextInt(); // Saving input as an integer
+                reBookInputValid.testBoundary(reBookChoice); // Test if input is within the boundary
+
+                switch (reBookChoice){
+                    case 1:
+                        book(); // book another class
+                        menu();
+                        break;
+
+                    case 2:
+                        menu();
+                }
 
 
-                book(); // book another class
-                menu();
 
                 break;
             case 6: // Option to quit
