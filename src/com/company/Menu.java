@@ -32,8 +32,8 @@ public class Menu {
 
                 System.out.println("\nWhich class would you like to review?\n");// code block
                 int classCount = 1;
-                for (Class classObject : schedule) {
-                    System.out.println(classCount +": "+ classObject.getClassName() ); // Show options for days when classes can be booked.
+                for (TuitionClass tuitionClassObject : schedule) {
+                    System.out.println(classCount +": "+ tuitionClassObject.getClassName() ); // Show options for days when classes can be booked.
                     classCount++;
                 }
 

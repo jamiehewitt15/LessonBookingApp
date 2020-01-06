@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="12d5cd7c-79a4-4baf-9abf-eb8af80a9ba1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/TuitionClass.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Report.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Schedule.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +96,10 @@
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
     <state x="-1554" y="149" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1577799978844" />
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1578349647146">
+      <screen x="0" y="0" width="1366" height="768" />
+    </state>
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768@0.0.1366.768" timestamp="1578349647146" />
     <state x="-1499" y="118" key="FileChooserDialogImpl" timestamp="1578049136600">
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
@@ -113,10 +120,11 @@
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
     <state width="1367" height="710" key="GridCell.Tab.0.right/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578319296917" />
-    <state x="-1569" y="131" key="com.intellij.ide.util.TipDialog" timestamp="1578296168147">
-      <screen x="-1920" y="0" width="1280" height="720" />
+    <state x="375" y="140" key="com.intellij.ide.util.TipDialog" timestamp="1578335619669">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="-1569" y="131" key="com.intellij.ide.util.TipDialog/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578296168147" />
+    <state x="375" y="140" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1578335619669" />
     <state x="-1834" y="0" key="new project wizard" timestamp="1578050335929">
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>

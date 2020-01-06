@@ -3,7 +3,7 @@ package com.company;
 import static com.company.Schedule.classCapacity;
 import static com.company.Customer.customerList;
 
-public class Class {
+public class TuitionClass {
     private String className; // Name of the ETC class.
     private int classTime = 0; // Time of day that the class runs.
     private int classPrice = 20; // cost of attending the class
@@ -16,7 +16,7 @@ public class Class {
 
 
     // Class constructor
-    public Class(String name, int time, int price,  boolean[] day) {
+    public TuitionClass(String name, int time, int price, boolean[] day) {
         this.setClassName(name);
         this.setClassTime(time);
         this.setClassPrice(price);

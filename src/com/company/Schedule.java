@@ -20,7 +20,7 @@ public class Schedule {
                         };
 
     // creating the array that will hold the schedule. If new classes are added the size of this array needs to be changed
-    public static Class[]  schedule = new Class[12];
+    public static TuitionClass[]  schedule = new TuitionClass[12];
 
     public static String[] getOpenDays() { return openDays;} // Method to return openDays array
     public static String getOpenDays(int i) { return openDays[i];} // Method to return individual openDays strings
@@ -28,18 +28,18 @@ public class Schedule {
     public static void initiateSchedule() { // this method is called at the start of Main to create the schedule.
 
         // Creating the class objects
-        Class english = new Class("English", 9, 20, new boolean[]{true, false, true, false, false, false, false, false});
-        Class maths = new Class("Maths", 15, 10, new boolean[]{true, true, true, true, false, false, false, false});
-        Class verbalReasoning = new Class("Verbal Reasoning", 19, 12, new boolean[]{true, true, true, true, false, false, false, false});
-        Class nonVerbalReasoning = new Class("Non-verbal Reasoning", 20, 16, new boolean[]{true, true, true, true, false, false, false, false});
-        Class biology = new Class("Biology", 9, 15, new boolean[]{false, true, false, true, false, false, false, false });
-        Class programming = new Class("Programming", 20, 25, new boolean[]{false, true, false, true, false, false, false, false});
-        Class french = new Class("French", 9, 20, new boolean[]{ false, false, false, false, true, false, true, false});
-        Class german = new Class("German", 15, 10, new boolean[]{false, false, false, false, true, true, true, true});
-        Class history = new Class("History", 19, 12, new boolean[]{false, false, false, false, true, true, true, true});
-        Class economics = new Class("Economics", 20, 16, new boolean[]{false, false, false, false, true, false, true, false});
-        Class geography = new Class("Geography", 9, 15, new boolean[]{false, false, false, false, false, true, false, true});
-        Class physics = new Class("Physics", 20, 25, new boolean[]{false, false, false, false, false, true, false, true});
+        TuitionClass english = new TuitionClass("English", 9, 20, new boolean[]{true, false, true, false, false, false, false, false});
+        TuitionClass maths = new TuitionClass("Maths", 15, 10, new boolean[]{true, true, true, true, false, false, false, false});
+        TuitionClass verbalReasoning = new TuitionClass("Verbal Reasoning", 19, 12, new boolean[]{true, true, true, true, false, false, false, false});
+        TuitionClass nonVerbalReasoning = new TuitionClass("Non-verbal Reasoning", 20, 16, new boolean[]{true, true, true, true, false, false, false, false});
+        TuitionClass biology = new TuitionClass("Biology", 9, 15, new boolean[]{false, true, false, true, false, false, false, false });
+        TuitionClass programming = new TuitionClass("Programming", 20, 25, new boolean[]{false, true, false, true, false, false, false, false});
+        TuitionClass french = new TuitionClass("French", 9, 20, new boolean[]{ false, false, false, false, true, false, true, false});
+        TuitionClass german = new TuitionClass("German", 15, 10, new boolean[]{false, false, false, false, true, true, true, true});
+        TuitionClass history = new TuitionClass("History", 19, 12, new boolean[]{false, false, false, false, true, true, true, true});
+        TuitionClass economics = new TuitionClass("Economics", 20, 16, new boolean[]{false, false, false, false, true, false, true, false});
+        TuitionClass geography = new TuitionClass("Geography", 9, 15, new boolean[]{false, false, false, false, false, true, false, true});
+        TuitionClass physics = new TuitionClass("Physics", 20, 25, new boolean[]{false, false, false, false, false, true, false, true});
 
         // Adding the class objects to the schedule array
         schedule[0] = english;

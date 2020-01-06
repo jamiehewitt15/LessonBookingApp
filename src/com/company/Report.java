@@ -9,7 +9,7 @@ public class Report {
     public static void earningsReport() {
 
         // Find the class with the highest earnings
-        Class highestEarning = schedule[0];
+        TuitionClass highestEarning = schedule[0];
         for (int i = 1; i < schedule.length; i++) {
             if(highestEarning.getEarnings() < schedule[i].getEarnings() ){
                 highestEarning = schedule[i];
@@ -33,7 +33,7 @@ public class Report {
         System.out.println("\nAverage Rating Report\n____________________");//
 
         // Find the class with the highest rating
-        Class highestRating = schedule[0];
+        TuitionClass highestRating = schedule[0];
         for (int i = 1; i < schedule.length; i++) {
             if(highestRating.getRating().getAverage() < schedule[i].getRating().getAverage()){
                 highestRating = schedule[i];
@@ -56,7 +56,7 @@ public class Report {
     public static void attendanceReport() {
 
         // Find the class with the highest total attendance
-        Class highestAttendance = schedule[0];
+        TuitionClass highestAttendance = schedule[0];
         for (int i = 1; i < schedule.length; i++) {
             if(highestAttendance.getTotalAttendance() < schedule[i].getTotalAttendance() ){
                 highestAttendance = schedule[i];
