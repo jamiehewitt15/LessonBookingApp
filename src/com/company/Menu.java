@@ -1,6 +1,9 @@
 package com.company;
 
+import java.util.ArrayList;
 import java.util.Scanner; // import the Scanner class
+
+import static com.company.Customer.customerList;
 import static com.company.Customer.login; // import the login() method from the Customer class
 import static com.company.Rating.ratingString; // import the ratingString() method from the Rating class
 import static com.company.Report.*; // import all methods from the Report class
@@ -11,7 +14,7 @@ public class Menu {
 
     static void menu() {
 
-        System.out.println("\nEnter the number to select:\n1 : Book Class\n2 : Enter review\n3 : Show Report\n4 : Change user\n5 : Close programme");  // Output user input
+        System.out.println("\n\nEnter the number to select:\n1 : Book Class\n2 : Enter review\n3 : Show Report\n4 : Change user\n5 : Change class booking\n6 : Close programme");  // Output user input
         Scanner menuInput = new Scanner(System.in);  // Create a Scanner object
 
         // Test for valid user input
@@ -92,9 +95,50 @@ public class Menu {
                 login();
                 menu();
                 break;
-            case 5: // Option to quit
-                quit();
+            case 5: // Change booking
+                System.out.println("\nSelect the booking you would like to cancel and then book another class:");// code block
 
+                ArrayList<int[]> deleteOptions = new ArrayList<int[]>(); // Create an ArrayList object to store all of the options
+                int count = 1;
+                for (int i = 0; i < schedule.length; ++i) {
+                    for (int j = 0; j < schedule[i].getClassStudents().length; ++j) {
+                        for (int k = 0; k < classCapacity; ++k) {
+                            if (schedule[i].getClassStudents(j, k) == customerList.get(customerList.size() - 1)){
+                                System.out.println(count + " : " + schedule[i].getClassName() + " on " + getOpenDays(j) + " at " + schedule[i].getClassTime() + ":00");// Print classes
+                                deleteOptions.add(new int[]{count, i, j, k});
+                                count++;
+                            }
+
+                        }
+                    }
+                }
+
+                // Test for valid user input
+                Scanner deleteScan = new Scanner(System.in);  // Create a Scanner object
+                DataValidator deleteInputValid = new DataValidator(1, 5);  // Create a DataValidator object
+                if(deleteScan.hasNextInt()) {} else {deleteInputValid.errorMessage();} // Test if input is an integer
+                int deleteChoice = deleteScan.nextInt(); // Saving input as an integer
+                deleteInputValid.testBoundary(deleteChoice); // Test if input is within the boundary
+
+                for (int i = 0; i < deleteOptions.size(); ++i) {
+                   if(deleteChoice == deleteOptions.get(deleteChoice-1)[0]){
+
+                       schedule[deleteOptions.get(deleteChoice-1)[1]].decreaseTotalAttendance();
+                       schedule[deleteOptions.get(deleteChoice-1)[1]].decreaseClassAttendance(deleteOptions.get(deleteChoice-1)[2]);
+                       schedule[deleteOptions.get(deleteChoice-1)[1]].removeStudent(deleteOptions.get(deleteChoice-1)[2], deleteOptions.get(deleteChoice-1)[3]);
+                   }
+                }
+
+                System.out.println("You have been removed from " + schedule[deleteOptions.get(deleteChoice-1)[1]].getClassName() + " on " + getOpenDays(deleteOptions.get(deleteChoice-1)[1]) + " at " + schedule[deleteOptions.get(deleteChoice-1)[1]].getClassTime() + ":00");// Print classes
+                System.out.println("\nBook another class:");
+
+
+                book(); // book another class
+                menu();
+
+                break;
+            case 6: // Option to quit
+                quit();
                 break;
             default:  // Default option provides redundancy as the data validator should stop other input.
                 System.out.println("Sorry that command isn't recognised"); // print message
