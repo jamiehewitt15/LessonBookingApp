@@ -1,10 +1,10 @@
 package com.company;
 
-import java.util.Scanner;
-import static com.company.Customer.login;
-import static com.company.Rating.ratingString;
-import static com.company.Report.*;
-import static com.company.Schedule.*;
+import java.util.Scanner; // import the Scanner class
+import static com.company.Customer.login; // import the login() method from the Customer class
+import static com.company.Rating.ratingString; // import the ratingString() method from the Rating class
+import static com.company.Report.*; // import all methods from the Report class
+import static com.company.Schedule.*; // import all methods from the Schedule class
 
 
 public class Menu {

@@ -1,9 +1,5 @@
 package com.company;
 
-import java.util.ArrayList;
-
-import static com.company.Schedule.schedule;
-
 public class Class {
     private String className; // Name of the ETC class.
     private int classTime = 0; // Time of day that the class runs.
@@ -15,7 +11,7 @@ public class Class {
     private int earnings = 0; // Earnings from the class = classPrice * totalAttendance
 
 
-
+    // Class constructor
     public Class(String name, int time, int price,  boolean[] day) {
         this.setClassName(name);
         this.setClassTime(time);
@@ -26,11 +22,7 @@ public class Class {
 
     }
 
-    public Class(){
-        this.className = "Unknown";
-        this.ratings = new Rating();
-    }
-
+    // Class set methods
     public void setClassName(String name)
     {
         this.className = name;
@@ -49,6 +41,7 @@ public class Class {
     public void setEarnings(){this.earnings = this.totalAttendance * classPrice; }
     public void setRating(Rating i){ this.ratings = i; }
 
+    // Class get methods
     public boolean getClassDay(int i) { return this.classDay[i]; }
     public int getClassAttendance(int i) { return this.classAttendance[i]; }
     public String getClassName() {

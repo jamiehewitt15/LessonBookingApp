@@ -5,7 +5,7 @@ import java.util.Scanner;
 public class Customer {
     private String name = "";
 
-    public Customer(String input){
+    public Customer(String input){ // customer constructor requires string parameter to set name
         this.setName(input);
     }
 
@@ -13,7 +13,7 @@ public class Customer {
         this.name = name;
     }
 
-    public String getName(){return this.name;}
+    public String getName(){return this.name;} // Get the name of the current customer object
 
     public static void login() {
         System.out.println("Welcome to the class booking program");
@@ -21,7 +21,8 @@ public class Customer {
         System.out.println("Please enter your username to continue");
         String userName = myObj.nextLine();  // Read user input
         Customer newUser = new Customer(userName); // Create new customer object
-        System.out.println("Logged in user is: " + userName);  // Confirm logged in & output user input
+        System.out.println("Logged in user is: " + newUser.getName() );  // Confirm logged in & output user input
+
     }
 
 

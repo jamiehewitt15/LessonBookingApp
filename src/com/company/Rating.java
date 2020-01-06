@@ -1,13 +1,12 @@
 package com.company;
 
 import java.util.ArrayList; // import the ArrayList class
-import static com.company.Menu.menu;
-import static com.company.Schedule.schedule;
+import static com.company.Menu.menu; // import the menu() method from the Menu class
+import static com.company.Schedule.schedule; // import the schedule[] array from the Schedule class
 
 public class Rating {
-    ArrayList<Integer> ratings = new ArrayList<Integer>(); // Create an ArrayList object
-    private double average = 0;
-    private int numOfRatings = 0;
+    ArrayList<Integer> ratings = new ArrayList<Integer>(); // Create an ArrayList object to store all of the ratings
+    private double average = 0; // Storing the average rating so it is more easily retrieved.
 
     public Rating(){
         this.average = 0;
@@ -17,6 +16,7 @@ public class Rating {
     public int getNumOfRatings(){ return ratings.size(); }
     public double getAverage(){ return average; }
 
+    // method to add rating to arrayList
     public void addRating(int x){
         if (x <= 5 && x >= 1){
             ratings.add(x);
@@ -27,13 +27,15 @@ public class Rating {
         }
     }
 
+    // method to calculate the average rating
     public void setAverage(){
         Integer sum = 0;
         for (Integer rating : ratings) {
             sum += rating;
         }
-        this.average = sum / ratings.size(); }
+        this.average = sum / getNumOfRatings(); }
 
+    // method print the name of the class, average rating and the number of reviews.
     public static void ratingString(int x){
         System.out.println(schedule[x].getClassName() + "\n\t->\tAverage rating: " + schedule[x].getRating().getAverage() + " | Number of reviews: " + schedule[x].getRating().getNumOfRatings() + " reviews.");
     }
