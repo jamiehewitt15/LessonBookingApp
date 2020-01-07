@@ -37,7 +37,7 @@ public class Rating {
 
     // method print the name of the class, average rating and the number of reviews.
     public static void ratingString(int x){
-        System.out.println(schedule[x].getClassName() + "\n\t->\tAverage rating: " + schedule[x].getRating().getAverage() + " | Number of reviews: " + schedule[x].getRating().getNumOfRatings() + " reviews.");
+        System.out.println(schedule[x].getLessonName() + "\n\t->\tAverage rating: " + schedule[x].getRating().getAverage() + " | Number of reviews: " + schedule[x].getRating().getNumOfRatings() + " reviews.");
     }
 
 }

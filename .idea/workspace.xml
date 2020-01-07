@@ -3,10 +3,16 @@
   <component name="ChangeListManager">
     <list default="true" id="12d5cd7c-79a4-4baf-9abf-eb8af80a9ba1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Class.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/TuitionClass.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Coursework1/com/company/Class.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Coursework1/com/company/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Coursework1/com/company/Menu.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Coursework1/com/company/Rating.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Coursework1/com/company/Rating.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Coursework1/com/company/Report.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Coursework1/com/company/Report.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Coursework1/com/company/Schedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Coursework1/com/company/Schedule.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Rating.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Rating.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Report.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Schedule.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/TuitionClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Lesson.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -96,34 +102,40 @@
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
     <state x="-1554" y="149" key="#com.intellij.ide.util.TreeClassChooserDialog/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1577799978844" />
-    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1578349647146">
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1578404768320">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
+    <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768/-1920.0.1280.720@0.0.1366.768" timestamp="1578404768320" />
     <state x="0" y="0" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.0.1366.768@0.0.1366.768" timestamp="1578349647146" />
     <state x="-1499" y="118" key="FileChooserDialogImpl" timestamp="1578049136600">
       <screen x="-1920" y="0" width="1280" height="720" />
     </state>
     <state x="-1499" y="118" key="FileChooserDialogImpl/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578049136600" />
-    <state width="1367" height="710" key="GridCell.Tab.0.bottom" timestamp="1578319296917">
-      <screen x="-1920" y="0" width="1280" height="720" />
+    <state width="1367" height="710" key="GridCell.Tab.0.bottom" timestamp="1578404288775">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1367" height="710" key="GridCell.Tab.0.bottom/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578319296917" />
-    <state width="1367" height="710" key="GridCell.Tab.0.center" timestamp="1578319296917">
-      <screen x="-1920" y="0" width="1280" height="720" />
+    <state width="1367" height="710" key="GridCell.Tab.0.bottom/0.0.1366.768/-1920.0.1280.720@0.0.1366.768" timestamp="1578404288775" />
+    <state width="1367" height="710" key="GridCell.Tab.0.center" timestamp="1578404288775">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1367" height="710" key="GridCell.Tab.0.center/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578319296917" />
-    <state width="1367" height="710" key="GridCell.Tab.0.left" timestamp="1578319296917">
-      <screen x="-1920" y="0" width="1280" height="720" />
+    <state width="1367" height="710" key="GridCell.Tab.0.center/0.0.1366.768/-1920.0.1280.720@0.0.1366.768" timestamp="1578404288775" />
+    <state width="1367" height="710" key="GridCell.Tab.0.left" timestamp="1578404288774">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1367" height="710" key="GridCell.Tab.0.left/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578319296917" />
-    <state width="1367" height="710" key="GridCell.Tab.0.right" timestamp="1578319296917">
-      <screen x="-1920" y="0" width="1280" height="720" />
+    <state width="1367" height="710" key="GridCell.Tab.0.left/0.0.1366.768/-1920.0.1280.720@0.0.1366.768" timestamp="1578404288774" />
+    <state width="1367" height="710" key="GridCell.Tab.0.right" timestamp="1578404288775">
+      <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state width="1367" height="710" key="GridCell.Tab.0.right/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578319296917" />
-    <state x="375" y="140" key="com.intellij.ide.util.TipDialog" timestamp="1578335619669">
+    <state width="1367" height="710" key="GridCell.Tab.0.right/0.0.1366.768/-1920.0.1280.720@0.0.1366.768" timestamp="1578404288775" />
+    <state x="375" y="140" key="com.intellij.ide.util.TipDialog" timestamp="1578403001974">
       <screen x="0" y="0" width="1366" height="768" />
     </state>
     <state x="-1569" y="131" key="com.intellij.ide.util.TipDialog/0.0.1366.768/-1920.0.1280.720@-1920.0.1280.720" timestamp="1578296168147" />
+    <state x="375" y="140" key="com.intellij.ide.util.TipDialog/0.0.1366.768/-1920.0.1280.720@0.0.1366.768" timestamp="1578403001974" />
     <state x="375" y="140" key="com.intellij.ide.util.TipDialog/0.0.1366.768@0.0.1366.768" timestamp="1578335619669" />
     <state x="-1834" y="0" key="new project wizard" timestamp="1578050335929">
       <screen x="-1920" y="0" width="1280" height="720" />

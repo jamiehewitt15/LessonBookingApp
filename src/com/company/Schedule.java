@@ -5,11 +5,11 @@ import java.util.Scanner;
 
 
 public class Schedule {
-    public static final int MaxClassesPerDay = 4; // Maximum number of classes per day
-    private static final int MaxClassesMorning = 1; // Maximum number of classes per day
-    private static final int MaxClassesAfternoon = 1; // Maximum number of classes per day
-    private static final int MaxClassesEvening = 2; // Maximum number of classes per day
-    public static final int classCapacity = 5; // Maximum number of people in a class
+    public static final int maxLessonsPerDay = 4; // Maximum number of classes per day
+    private static final int maxClassesMorning = 1; // Maximum number of classes per day
+    private static final int maxClassesAfternoon = 1; // Maximum number of classes per day
+    private static final int maxClassesEvening = 2; // Maximum number of classes per day
+    public static final int lessonCapacity = 5; // Maximum number of people in a class
 
     // openDays are the dates that will be used in the schedule
     // To repeat the 4 week period, openDays can be changed to reflect the new dates
@@ -20,7 +20,7 @@ public class Schedule {
                         };
 
     // creating the array that will hold the schedule. If new classes are added the size of this array needs to be changed
-    public static TuitionClass[]  schedule = new TuitionClass[12];
+    public static Lesson[]  schedule = new Lesson[12];
 
     public static String[] getOpenDays() { return openDays;} // Method to return openDays array
     public static String getOpenDays(int i) { return openDays[i];} // Method to return individual openDays strings
@@ -28,18 +28,18 @@ public class Schedule {
     public static void initiateSchedule() { // this method is called at the start of Main to create the schedule.
 
         // Creating the class objects
-        TuitionClass english = new TuitionClass("English", 9, 20, new boolean[]{true, false, true, false, false, false, false, false});
-        TuitionClass maths = new TuitionClass("Maths", 15, 10, new boolean[]{true, true, true, true, false, false, false, false});
-        TuitionClass verbalReasoning = new TuitionClass("Verbal Reasoning", 19, 12, new boolean[]{true, true, true, true, false, false, false, false});
-        TuitionClass nonVerbalReasoning = new TuitionClass("Non-verbal Reasoning", 20, 16, new boolean[]{true, true, true, true, false, false, false, false});
-        TuitionClass biology = new TuitionClass("Biology", 9, 15, new boolean[]{false, true, false, true, false, false, false, false });
-        TuitionClass programming = new TuitionClass("Programming", 20, 25, new boolean[]{false, true, false, true, false, false, false, false});
-        TuitionClass french = new TuitionClass("French", 9, 20, new boolean[]{ false, false, false, false, true, false, true, false});
-        TuitionClass german = new TuitionClass("German", 15, 10, new boolean[]{false, false, false, false, true, true, true, true});
-        TuitionClass history = new TuitionClass("History", 19, 12, new boolean[]{false, false, false, false, true, true, true, true});
-        TuitionClass economics = new TuitionClass("Economics", 20, 16, new boolean[]{false, false, false, false, true, false, true, false});
-        TuitionClass geography = new TuitionClass("Geography", 9, 15, new boolean[]{false, false, false, false, false, true, false, true});
-        TuitionClass physics = new TuitionClass("Physics", 20, 25, new boolean[]{false, false, false, false, false, true, false, true});
+        Lesson english = new Lesson("English", 9, 20, new boolean[]{true, false, true, false, false, false, false, false});
+        Lesson maths = new Lesson("Maths", 15, 10, new boolean[]{true, true, true, true, false, false, false, false});
+        Lesson verbalReasoning = new Lesson("Verbal Reasoning", 19, 12, new boolean[]{true, true, true, true, false, false, false, false});
+        Lesson nonVerbalReasoning = new Lesson("Non-verbal Reasoning", 20, 16, new boolean[]{true, true, true, true, false, false, false, false});
+        Lesson biology = new Lesson("Biology", 9, 15, new boolean[]{false, true, false, true, false, false, false, false });
+        Lesson programming = new Lesson("Programming", 20, 25, new boolean[]{false, true, false, true, false, false, false, false});
+        Lesson french = new Lesson("French", 9, 20, new boolean[]{ false, false, false, false, true, false, true, false});
+        Lesson german = new Lesson("German", 15, 10, new boolean[]{false, false, false, false, true, true, true, true});
+        Lesson history = new Lesson("History", 19, 12, new boolean[]{false, false, false, false, true, true, true, true});
+        Lesson economics = new Lesson("Economics", 20, 16, new boolean[]{false, false, false, false, true, false, true, false});
+        Lesson geography = new Lesson("Geography", 9, 15, new boolean[]{false, false, false, false, false, true, false, true});
+        Lesson physics = new Lesson("Physics", 20, 25, new boolean[]{false, false, false, false, false, true, false, true});
 
         // Adding the class objects to the schedule array
         schedule[0] = english;
@@ -60,7 +60,7 @@ public class Schedule {
 
 
 
-    static void book() {
+    static void bookLesson() {
 
         // Sub-menu for choosing the day for the class
         System.out.println("\nWhat day would you like to book your class on?\n");
@@ -90,8 +90,8 @@ public class Schedule {
 
             // if statement checks the class is on that day, number of classes on day is less than maximum,
             // attendance is less than the class capacity, class time is in the morning, morning classes are less than allowed
-            if ((schedule[i].getClassDay(dayChoice) == true) && (classCount <= MaxClassesPerDay) && (schedule[i].getClassAttendance(dayChoice) < classCapacity) && schedule[i].getClassTime() == 9 && morningCount < MaxClassesMorning) {
-                    System.out.println("\nMorning Class\n\t"+ i + " : " + schedule[i].getClassName() + " at " + schedule[i].getClassTime() + ":00 | Cost: £" + schedule[i].getClassPrice());
+            if ((schedule[i].getClassDay(dayChoice) == true) && (classCount <= maxLessonsPerDay) && (schedule[i].getClassAttendance(dayChoice) < lessonCapacity) && schedule[i].getLessonTime() == 9 && morningCount < maxClassesMorning) {
+                    System.out.println("\nMorning Class\n\t"+ i + " : " + schedule[i].getLessonName() + " at " + schedule[i].getLessonTime() + ":00 | Cost: £" + schedule[i].getClassPrice());
                     morningCount++; // increase the count of classes at this time slot
                     classCount++; // increase the count of classes on this day
             }
@@ -102,8 +102,8 @@ public class Schedule {
 
             // if statement checks the class is on that day, number of classes on day is less than maximum,
             // attendance is less than the class capacity, class time is in the afternoon, afternoon classes are less than allowed
-            if ((schedule[i].getClassDay(dayChoice) == true) && (classCount <= MaxClassesPerDay) && (schedule[i].getClassAttendance(dayChoice) < classCapacity) && schedule[i].getClassTime() == 15 && afternoonCount < MaxClassesAfternoon) {
-                System.out.println("\nAfternoon Class\n\t"+ i + " : " + schedule[i].getClassName() + " at " + schedule[i].getClassTime() + ":00 | Cost: £" + schedule[i].getClassPrice());
+            if ((schedule[i].getClassDay(dayChoice) == true) && (classCount <= maxLessonsPerDay) && (schedule[i].getClassAttendance(dayChoice) < lessonCapacity) && schedule[i].getLessonTime() == 15 && afternoonCount < maxClassesAfternoon) {
+                System.out.println("\nAfternoon Class\n\t"+ i + " : " + schedule[i].getLessonName() + " at " + schedule[i].getLessonTime() + ":00 | Cost: £" + schedule[i].getClassPrice());
                 afternoonCount++; // increase the count of classes at this time slot
                 classCount++; // increase the count of classes on this day
             }
@@ -114,8 +114,8 @@ public class Schedule {
 
             // if statement checks the class is on that day, number of classes on day is less than maximum,
             // attendance is less than the class capacity, class time is 7pm, evening classes are less than allowed
-            if ((schedule[i].getClassDay(dayChoice) == true) && (classCount <= MaxClassesPerDay) && (schedule[i].getClassAttendance(dayChoice) < classCapacity) && schedule[i].getClassTime() == 19 && eveningCount < MaxClassesEvening) {
-                System.out.println("\nEvening Classes\n\t"+ i + " : " + schedule[i].getClassName() + " at " + schedule[i].getClassTime() + ":00 | Cost: £" + schedule[i].getClassPrice());
+            if ((schedule[i].getClassDay(dayChoice) == true) && (classCount <= maxLessonsPerDay) && (schedule[i].getClassAttendance(dayChoice) < lessonCapacity) && schedule[i].getLessonTime() == 19 && eveningCount < maxClassesEvening) {
+                System.out.println("\nEvening Classes\n\t"+ i + " : " + schedule[i].getLessonName() + " at " + schedule[i].getLessonTime() + ":00 | Cost: £" + schedule[i].getClassPrice());
                 eveningCount++; // increase the count of classes at this time slot
                 classCount++; // increase the count of classes on this day
             }
@@ -126,8 +126,8 @@ public class Schedule {
 
             // if statement checks the class is on that day, number of classes on day is less than maximum,
             // attendance is less than the class capacity, class time is 8pm, morning classes are less than allowed
-            if ((schedule[i].getClassDay(dayChoice) == true) && (classCount <= MaxClassesPerDay) && (schedule[i].getClassAttendance(dayChoice) < classCapacity) && schedule[i].getClassTime() == 20 && eveningCount < MaxClassesEvening) {
-                System.out.println("\t"+ i + " : " + schedule[i].getClassName() + " at " + schedule[i].getClassTime() + ":00 | Cost: £" + schedule[i].getClassPrice());
+            if ((schedule[i].getClassDay(dayChoice) == true) && (classCount <= maxLessonsPerDay) && (schedule[i].getClassAttendance(dayChoice) < lessonCapacity) && schedule[i].getLessonTime() == 20 && eveningCount < maxClassesEvening) {
+                System.out.println("\t"+ i + " : " + schedule[i].getLessonName() + " at " + schedule[i].getLessonTime() + ":00 | Cost: £" + schedule[i].getClassPrice());
                 eveningCount++; // increase the count of classes at this time slot
                 classCount++; // increase the count of classes on this day
             }
@@ -153,11 +153,29 @@ public class Schedule {
 
         // Print out confirmation of the booking.
         System.out.println("\n-------------------------------------------------" +
-                    "\nYou have booked class: " + schedule[classChoice].getClassName() + " at " + schedule[classChoice].getClassTime()+":00"
+                    "\nYou have booked class: " + schedule[classChoice].getLessonName() + " at " + schedule[classChoice].getLessonTime()+":00"
                     + "\nDate: " + openDays[dayChoice]
                     +  "\nThe price will be: £" + schedule[classChoice].getClassPrice()
                     + "\n-------------------------------------------------");  // Output user input
 
+        // Payment request
+        System.out.println("\nHow would you like to pay?\n1 : Card\n2 : Cash");
+
+        Scanner paymentScanner = new Scanner(System.in);  // Create a Scanner object
+        // Test for valid user input
+        DataValidator paymentInputTest = new DataValidator(1, 2);  // Create a DataValidator object
+        if(paymentScanner.hasNextInt()) {} else {paymentInputTest.errorMessage();} // Test if input is an integer
+        int paymentChoice = paymentScanner.nextInt();  // Read user input & Saving input as an integer
+        paymentInputTest.testBoundary(paymentChoice); // Test if input is within the boundary
+
+        switch (paymentChoice){
+            case 1:
+                System.out.println("\nPlease bring your card with you to the class to pay £" + schedule[classChoice].getClassPrice());
+                break;
+            case 2:
+                System.out.println("\nPlease bring £" + schedule[classChoice].getClassPrice() + " cash with you to the class");
+                break;
+        }
 
     }
 
