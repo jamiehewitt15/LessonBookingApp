@@ -6,11 +6,11 @@ import static com.company.Schedule.*;
 
 public class Report {
 
-    public static String[] availableReports = { "Highest earning classes", "Attendance report", "Average class ratings" };
+    public static String[] availableReports = { "Highest earning lessons", "Attendance report", "Average lesson ratings" };
 
     public static void earningsReport() {
 
-        // Find the class with the highest earnings
+        // Find the lesson with the highest earnings
         Lesson highestEarning = schedule[0];
         for (int i = 1; i < schedule.length; i++) {
             if(highestEarning.getEarnings() < schedule[i].getEarnings() ){
@@ -20,12 +20,12 @@ public class Report {
 
         // Check if the highest is zero, otherwise print it out
         if(highestEarning.getEarnings() == 0){
-            System.out.println("\nNo class has any income.\n____________________");//
+            System.out.println("\nNo lesson has any income.\n____________________");//
         } else{
-            System.out.println("\nThe class with the highest income is: " + highestEarning.getLessonName() + "\nIncome: £" + highestEarning.getEarnings() + "\n____________________");//
+            System.out.println("\nThe lesson with the highest income is: " + highestEarning.getLessonName() + "\nIncome: £" + highestEarning.getEarnings() + "\n____________________");//
         }
 
-        // Print total earnings for each class
+        // Print total earnings for each lesson
         for (int i = 0; i < schedule.length; i++) {
             System.out.println(schedule[i].getLessonName() + " - Total Earnings: £" + schedule[i].getEarnings()) ;
         }
@@ -34,7 +34,7 @@ public class Report {
     public static void ratingReport() {
         System.out.println("\nAverage Rating Report\n____________________");//
 
-        // Find the class with the highest rating
+        // Find the lesson with the highest rating
         Lesson highestRating = schedule[0];
         for (int i = 1; i < schedule.length; i++) {
             if(highestRating.getRating().getAverage() < schedule[i].getRating().getAverage()){
@@ -46,10 +46,10 @@ public class Report {
         if(highestRating.getRating().getAverage() == 0){
             System.out.println("\nThere have been no ratings\n____________________");//
         } else{
-            System.out.println("\nThe highest rated class is " + highestRating.getLessonName() + ": " + highestRating.getRating().getAverage() + " out of 5 (" + highestRating.getRating().getNumOfRatings() + " ratings)" + "\n____________________");//
+            System.out.println("\nThe highest rated lesson is " + highestRating.getLessonName() + ": " + highestRating.getRating().getAverage() + " out of 5 (" + highestRating.getRating().getNumOfRatings() + " ratings)" + "\n____________________");//
         }
 
-        // Print average rating for each class
+        // Print average rating for each lesson
         for (int i = 0; i < schedule.length; i++) {
             ratingString(i);
         }
@@ -57,7 +57,7 @@ public class Report {
 
     public static void attendanceReport() {
 
-        // Find the class with the highest total attendance
+        // Find the lesson with the highest total attendance
         Lesson highestAttendance = schedule[0];
         for (int i = 1; i < schedule.length; i++) {
             if(highestAttendance.getTotalAttendance() < schedule[i].getTotalAttendance() ){
@@ -67,19 +67,19 @@ public class Report {
 
         // Check if the highest is zero, otherwise print it out
         if(highestAttendance.getTotalAttendance() == 0){
-            System.out.println("*************************************\nNo classes have been attended.\n*************************************");//
+            System.out.println("*************************************\nNo lessons have been attended.\n*************************************");//
         } else{
-            System.out.println("**************************************************************************\nThe class with the most attendance is " + highestAttendance.getLessonName() + "\nTotal attendance: " + highestAttendance.getTotalAttendance() + "\n**************************************************************************");//
+            System.out.println("**************************************************************************\nThe lesson with the most attendance is " + highestAttendance.getLessonName() + "\nTotal attendance: " + highestAttendance.getTotalAttendance() + "\n**************************************************************************");//
         }
 
-        // Print attendance for each class on each day
+        // Print attendance for each lesson on each day
         for (int i = 0; i < getOpenDays().length; i++) {
             int count = 1;
-            System.out.println("\n\nClass attendance on: " + getOpenDays(i) ); // Show options for days when classes can be booked.
+            System.out.println("\n\nLesson attendance on: " + getOpenDays(i) ); // Show options for days when lessons can be booked.
             for (int j = 0; j < schedule.length; j++) {
-                // Check the class is on that day and the max attendance has not been exceeded
-                if ((schedule[j].getClassDay(i) == true) && (count <= maxLessonsPerDay)) {
-                    System.out.print(schedule[j].getLessonName() + ": " + schedule[j].getClassAttendance(i) + " | " );
+                // Check the lesson is on that day and the max attendance has not been exceeded
+                if ((schedule[j].getLessonDay(i) == true) && (count <= maxLessonsPerDay)) {
+                    System.out.print(schedule[j].getLessonName() + ": " + schedule[j].getLessonAttendance(i) + " | " );
                     count++;
                 }
 

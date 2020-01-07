@@ -3,16 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="12d5cd7c-79a4-4baf-9abf-eb8af80a9ba1" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Coursework1/com/company/Class.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Coursework1/com/company/Menu.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Coursework1/com/company/Menu.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Coursework1/com/company/Rating.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Coursework1/com/company/Rating.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Coursework1/com/company/Report.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Coursework1/com/company/Report.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Coursework1/com/company/Schedule.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Coursework1/com/company/Schedule.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Menu.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Menu.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Lesson.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Lesson.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Rating.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Rating.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Report.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Report.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Schedule.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Schedule.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/TuitionClass.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Lesson.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

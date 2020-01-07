@@ -4,65 +4,65 @@ import static com.company.Schedule.lessonCapacity;
 import static com.company.Customer.customerList;
 
 public class Lesson {
-    private String className; // Name of the ETC class.
-    private int classTime = 0; // Time of day that the class runs.
-    private int classPrice = 20; // cost of attending the class
-    private boolean[] classDay = {false, false, false, false, false, false, false, false}; // Timetable of days when class is running
-    private int[] classAttendance = {0, 0, 0, 0, 0, 0, 0, 0}; // attendance count for the class on each day
-    private Rating ratings; // Ratings object for the class
-    private int totalAttendance = 0; // total class attendance on all days combined
-    private int earnings = 0; // Earnings from the class = classPrice * totalAttendance
-    private String[][] classStudents = new String[8][lessonCapacity]; // Create array to store the names of students enrolled in class
+    private String lessonName; // Name of the ETC lesson.
+    private int lessonTime = 0; // Time of day that the lesson runs.
+    private int lessonPrice = 20; // cost of attending the lesson
+    private boolean[] lessonDay = {false, false, false, false, false, false, false, false}; // Timetable of days when lesson is running
+    private int[] lessonAttendance = {0, 0, 0, 0, 0, 0, 0, 0}; // attendance count for the lesson on each day
+    private Rating ratings; // Ratings object for the lesson
+    private int totalAttendance = 0; // total lesson attendance on all days combined
+    private int earnings = 0; // Earnings from the lesson = lessonPrice * totalAttendance
+    private String[][] lessonStudents = new String[8][lessonCapacity]; // Create array to store the names of students enrolled in lesson
 
 
-    // Class constructor
+    // Lesson constructor
     public Lesson(String name, int time, int price, boolean[] day) {
-        this.setClassName(name);
-        this.setClassTime(time);
-        this.setClassPrice(price);
+        this.setLessonName(name);
+        this.setLessonTime(time);
+        this.setLessonPrice(price);
         this.setDay(day);
         this.ratings = new Rating();
     }
 
-    // Class set methods
-    public void setClassName(String name)
+    // Lesson set methods
+    public void setLessonName(String name)
     {
-        this.className = name;
+        this.lessonName = name;
     }
-    public void setClassTime(int time)
+    public void setLessonTime(int time)
     {
-        this.classTime = time;
+        this.lessonTime = time;
     }
-    public void setClassPrice(int price)
+    public void setLessonPrice(int price)
     {
-        this.classPrice = price;
+        this.lessonPrice = price;
     }
-    public void setDay(boolean[] day) { this.classDay = day; }
-    public void increaseClassAttendance(int i) { this.classAttendance[i]++; }
-    public void decreaseLessonAttendance(int i) { this.classAttendance[i]--; }
+    public void setDay(boolean[] day) { this.lessonDay = day; }
+    public void increaseLessonAttendance(int i) { this.lessonAttendance[i]++; }
+    public void decreaseLessonAttendance(int i) { this.lessonAttendance[i]--; }
     public void setTotalAttendance(){this.totalAttendance++; }
     public void decreaseTotalAttendance(){this.totalAttendance--; }
-    public void setEarnings(){this.earnings = this.totalAttendance * classPrice; }
+    public void setEarnings(){this.earnings = this.totalAttendance * lessonPrice; }
     public void setRating(Rating i){ this.ratings = i; }
-    public void removeStudent(int i, int j){ this.classStudents[i][j] = "";}
-    public void setClassStudents(int i){
+    public void removeStudent(int i, int j){ this.lessonStudents[i][j] = "";}
+    public void setLessonStudents(int i){
         int j;
-        if (getClassAttendance(i) < lessonCapacity) { // Check that the class is not already full
-            j = getClassAttendance(i);
-            this.classStudents[i][j] = customerList.get(customerList.size() - 1);} // Add the current student's name to the classStudents[][] array
-        else { System.out.println("Sorry, class is full.");}
+        if (getLessonAttendance(i) < lessonCapacity) { // Check that the lesson is not already full
+            j = getLessonAttendance(i);
+            this.lessonStudents[i][j] = customerList.get(customerList.size() - 1);} // Add the current student's name to the LessonStudents[][] array
+        else { System.out.println("Sorry, Lesson is full.");}
         }
 
-    // Class get methods
-    public boolean getClassDay(int i) { return this.classDay[i]; }
-    public int getClassAttendance(int i) { return this.classAttendance[i]; }
-    public String getLessonName() { return className; }
-    public int getClassPrice() { return this.classPrice; }
-    public int getLessonTime() { return this.classTime; }
+    // Lesson get methods
+    public boolean getLessonDay(int i) { return this.lessonDay[i]; }
+    public int getLessonAttendance(int i) { return this.lessonAttendance[i]; }
+    public String getLessonName() { return lessonName; }
+    public int getLessonPrice() { return this.lessonPrice; }
+    public int getLessonTime() { return this.lessonTime; }
     public Rating getRating() {return this.ratings; }
     public int getTotalAttendance() {return this.totalAttendance;}
     public int getEarnings() {return this.earnings;}
-    public String[][] getLessonStudents(){ return this.classStudents; }
-    public String getLessonStudents(int i, int j){ return this.classStudents[i][j]; }
+    public String[][] getLessonStudents(){ return this.lessonStudents; }
+    public String getLessonStudents(int i, int j){ return this.lessonStudents[i][j]; }
 
 }

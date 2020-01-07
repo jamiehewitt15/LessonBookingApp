@@ -20,7 +20,7 @@ public class Customer {
 
 
     public static void login() {
-        System.out.println("Welcome to the class booking program");
+        System.out.println("Welcome to the ETC Lesson booking program");
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Please enter your username to continue");
         String userName = myObj.nextLine();  // Read user input
