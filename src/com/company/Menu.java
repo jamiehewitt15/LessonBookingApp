@@ -1,13 +1,13 @@
 package com.company;
 
 import java.util.ArrayList;
-import java.util.Scanner; // import the Scanner class
 
-import static com.company.Customer.customerList;
-import static com.company.Customer.login; // import the login() method from the Customer class
+import static com.company.CustomerList.currentUser;
+import static com.company.CustomerList.loginOrNewUser; // import the loginOrNewUser() method from the CustomerList class
 import static com.company.Rating.ratingString; // import the ratingString() method from the Rating class
 import static com.company.Report.*; // import all methods from the Report class
 import static com.company.Schedule.*; // import all methods from the Schedule class
+import static com.company.DataValidator.dataInputValidation;
 
 
 public class Menu {
@@ -26,89 +26,23 @@ public class Menu {
             optionCount++;
         }
 
-        Scanner menuInput = new Scanner(System.in);  // Create a Scanner object
-
-        // Test for valid user input
-        DataValidator menuInputTest = new DataValidator(1, menuOptions.length);  // Create a DataValidator object
-        if(menuInput.hasNextInt()) {} else {menuInputTest.errorMessage();} // Test if input is an integer
-        Integer menuSelect = menuInput.nextInt(); // Saving input as an integer
-        menuInputTest.testBoundary(menuSelect); // Test if input is within the boundary
+        int menuSelect = dataInputValidation(1, menuOptions.length); // Test for valid user input and save input
 
         switch(menuSelect) {
             case 1: // book a lesson
-                bookLesson(); // run bookLesson() method from Schedule
+                bookLesson();
                 menu();
                 break;
-            case 2:
-
-                System.out.println("\nWhich Lesson would you like to review?\n");// code block
-                int lessonCount = 1;
-                for (Lesson lessonObject : schedule) {
-                    System.out.println(lessonCount +": "+ lessonObject.getLessonName() ); // Show options for days when lessons can be booked.
-                    lessonCount++;
-                }
-
-                // Test for valid user input
-                Scanner lessonScan = new Scanner(System.in);  // Create a Scanner object
-                DataValidator lessonRatingValid = new DataValidator(1, schedule.length);  // Create a DataValidator object
-                if(lessonScan.hasNextInt()) {} else {lessonRatingValid.errorMessage();} // Test if input is an integer
-                Integer ratingSelect = lessonScan.nextInt() - 1; // Saving input as an integer
-                lessonRatingValid.testBoundary((ratingSelect + 1)); // Test if input is within the boundary
-
-
-                System.out.println("\nPlease type your review (1-5)\n1: Very dissatisfied\n2: Dissatisfied\n3: Ok\n4: Satisfied\n5: Very Satisfied");// code block
-
-                // Test for valid user input
-                Scanner ratingScan = new Scanner(System.in);  // Create a Scanner object
-                DataValidator ratingInputValid = new DataValidator(1, 5);  // Create a DataValidator object
-                if(ratingScan.hasNextInt()) {} else {ratingInputValid.errorMessage();} // Test if input is an integer
-                Integer ratingInput = ratingScan.nextInt(); // Saving input as an integer
-                ratingInputValid.testBoundary(ratingInput); // Test if input is within the boundary
-
-                schedule[ratingSelect].getRating().addRating(ratingInput); // Add the rating and update the average.
-
-                System.out.println("\nThank you for your review.\nYou have rated " + schedule[ratingSelect].getLessonName() + " " + ratingInput + " out of 5\n");// Show rating in output
-                ratingString(ratingSelect);
-
+            case 2: // Enter Review
+                reviewLesson();
                 menu();
                 break;
-
             case 3: // Option for reports
-
-                // Sub-menu for the type of report
-                System.out.println("\nWhat type of report would you like?");
-                int reportOptionCount = 1;
-                for (String i : availableReports) { // Looping through availableReports array to show the menu
-                    System.out.println(reportOptionCount +" : "+i); // Print report options.
-                    reportOptionCount++;
-                }
-
-                // Test for valid user input
-                Scanner reportScan = new Scanner(System.in);  // Create a Scanner object
-                DataValidator reportInputValid = new DataValidator(1, 3);  // Create a DataValidator object
-                if(reportScan.hasNextInt()) {} else {reportInputValid.errorMessage();} // Test if input is an integer
-                int reportChoice = reportScan.nextInt(); // Saving input as an integer
-                reportInputValid.testBoundary(reportChoice); // Test if input is within the boundary
-
-                // Switch statement selects the different report options
-                switch (reportChoice){
-                    case 1:
-                        earningsReport();
-                        break;
-                    case 2:
-                        attendanceReport();
-                        break;
-                    case 3:
-                        ratingReport();
-                        break;
-                }
-
+                chooseReport();
                 menu();
-
                 break;
             case 4: // Change user
-                System.out.println("Welcome!");// code block
-                login();
+                loginOrNewUser();
                 menu();
                 break;
             case 5: // Change booking
@@ -120,8 +54,8 @@ public class Menu {
                 for (int i = 0; i < schedule.length; ++i) {
                     for (int j = 0; j < schedule[i].getLessonStudents().length; ++j) {
                         for (int k = 0; k < lessonCapacity; ++k) {
-                            if (schedule[i].getLessonStudents(j, k) == customerList.get(customerList.size() - 1)){
-                                System.out.println(count + " : " + schedule[i].getLessonName() + " on " + getOpenDays(j) + " at " + schedule[i].getLessonTime() + ":00");// Print lessons
+                            if (schedule[i].getLessonStudents(j, k) == currentUser.getName()){
+                                System.out.println(schedule[i].getLessonName() + " on " + getOpenDays(j) + " at " + schedule[i].getLessonTime() + ":00");// Print lessons
                                 deleteOptions.add(new int[]{count, i, j, k}); // add the available lessons to the deleteOptions array List
                                 count++;
                             }
@@ -130,12 +64,7 @@ public class Menu {
                     }
                 }
 
-                // Test for valid user input
-                Scanner deleteScan = new Scanner(System.in);  // Create a Scanner object
-                DataValidator deleteInputValid = new DataValidator(1, (schedule.length*8* maxLessonsPerDay));  // Create a DataValidator object
-                if(deleteScan.hasNextInt()) {} else {deleteInputValid.errorMessage();} // Test if input is an integer
-                int deleteChoice = deleteScan.nextInt(); // Saving input as an integer
-                deleteInputValid.testBoundary(deleteChoice); // Test if input is within the boundary
+                int deleteChoice = dataInputValidation(1, (schedule.length*8* maxLessonsPerDay)); // Test for valid user input and save input
 
                 for (int i = 0; i < deleteOptions.size(); ++i) {
                    if(deleteChoice == deleteOptions.get(deleteChoice-1)[0]){
@@ -153,12 +82,7 @@ public class Menu {
                 // Give user the opportunity to book another lesson
                 System.out.println("\nWould you like to book another lesson:\n1 : Yes\n2 : No");
 
-                Scanner reBookScan = new Scanner(System.in);  // Create a Scanner object
-                // Test for valid user input
-                DataValidator reBookInputValid = new DataValidator(1, 2);  // Create a DataValidator object
-                if(reBookScan.hasNextInt()) {} else {reBookInputValid.errorMessage();} // Test if input is an integer
-                int reBookChoice = reBookScan.nextInt(); // Saving input as an integer
-                reBookInputValid.testBoundary(reBookChoice); // Test if input is within the boundary
+                int reBookChoice = dataInputValidation(1, 2); // Test for valid user input and save input
 
                 switch (reBookChoice){
                     case 1:
@@ -174,11 +98,11 @@ public class Menu {
 
                 break;
             case 6: // Show booked lessons
-                System.out.println("Booked lessons for user: " + customerList.get(customerList.size() - 1));
+                System.out.println("Booked lessons for user: " + currentUser.getName());
                 for (int i = 0; i < schedule.length; ++i) {
                     for (int j = 0; j < schedule[i].getLessonStudents().length; ++j) {
                         for (int k = 0; k < lessonCapacity; ++k) {
-                            if (schedule[i].getLessonStudents(j, k) == customerList.get(customerList.size() - 1)){
+                            if (schedule[i].getLessonStudents(j, k) == currentUser.getName()){
                                 System.out.println(schedule[i].getLessonName() + " on " + getOpenDays(j) + " at " + schedule[i].getLessonTime() + ":00");// Print lessons
 
                             }
@@ -199,12 +123,7 @@ public class Menu {
 
     static void quit(){
         System.out.println("\n\nAre you sure you would like to quit?\nYou may lose unsaved information\n1 : Show main menu\n2 : Exit");  // Output user input
-        Scanner menuInput = new Scanner(System.in);  // Create a Scanner object
-
-        DataValidator menuInputTest = new DataValidator(1,2);  // Create a DataValidator object
-        if(menuInput.hasNextInt()) {} else {menuInputTest.errorMessage();} // Test if input is an integer
-        Integer menuSelect = menuInput.nextInt(); // Saving input as an integer
-        menuInputTest.testBoundary(menuSelect); // Test if input is within the boundary
+        int menuSelect = dataInputValidation(1, 2); // Test for valid user input and save input
 
         switch(menuSelect) {
             case 1:
@@ -218,4 +137,49 @@ public class Menu {
                 menu();
         }
     }
+
+    private static void reviewLesson(){
+        System.out.println("\nWhich Lesson would you like to review?\n");
+        int lessonCount = 1;
+        for (Lesson lessonObject : schedule) {
+            System.out.println(lessonCount +": "+ lessonObject.getLessonName() ); // Show options for days when lessons can be booked.
+            lessonCount++;
+        }
+
+        int ratingSelect = dataInputValidation(1, schedule.length); // Test for valid user input and save input
+
+        System.out.println("\nPlease type your review (1-5)\n1: Very dissatisfied\n2: Dissatisfied\n3: Ok\n4: Satisfied\n5: Very Satisfied");// code block
+
+        int ratingInput = dataInputValidation(1, 5); // Test for valid user input and save input
+
+        schedule[ratingSelect].getRating().addRating(ratingInput); // Add the rating and update the average.
+
+        System.out.println("\nThank you for your review.\nYou have rated " + schedule[ratingSelect].getLessonName() + " " + ratingInput + " out of 5\n");// Show rating in output
+        ratingString(ratingSelect);
+    }
+
+    private static void chooseReport(){
+        System.out.println("\nWhat type of report would you like?");
+        int reportOptionCount = 1;
+        for (String i : availableReports) { // Looping through availableReports array to show the menu
+            System.out.println(reportOptionCount +" : "+i); // Print report options.
+            reportOptionCount++;
+        }
+
+        int reportChoice = dataInputValidation(1, reportOptionCount);
+
+        // Switch statement selects the different report options
+        switch (reportChoice){
+            case 1:
+                earningsReport();
+                break;
+            case 2:
+                attendanceReport();
+                break;
+            case 3:
+                ratingReport();
+                break;
+        }
+    }
 }
+

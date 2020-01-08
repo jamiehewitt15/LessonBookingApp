@@ -1,7 +1,7 @@
 package com.company;
 
+import static com.company.CustomerList.currentUser;
 import static com.company.Schedule.lessonCapacity;
-import static com.company.Customer.customerList;
 
 public class Lesson {
     private String lessonName; // Name of the ETC lesson.
@@ -49,7 +49,7 @@ public class Lesson {
         int j;
         if (getLessonAttendance(i) < lessonCapacity) { // Check that the lesson is not already full
             j = getLessonAttendance(i);
-            this.lessonStudents[i][j] = customerList.get(customerList.size() - 1);} // Add the current student's name to the LessonStudents[][] array
+            this.lessonStudents[i][j] = currentUser.getName();} // Add the current student's name to the LessonStudents[][] array
         else { System.out.println("Sorry, Lesson is full.");}
         }
 

@@ -1,6 +1,5 @@
 package com.company;
 
-
 import static com.company.Rating.ratingString;
 import static com.company.Schedule.*;
 

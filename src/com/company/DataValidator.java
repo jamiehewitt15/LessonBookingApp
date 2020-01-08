@@ -1,5 +1,7 @@
 package com.company;
 
+import java.util.Scanner;
+
 import static com.company.Menu.menu;
 
 public class DataValidator {
@@ -29,5 +31,14 @@ public class DataValidator {
     public void errorMessage(){
         System.out.println("Invalid Input\nAn integer is required between " + lowerBoundary + " and " + upperBoundary);
         menu();
+    }
+
+    public static int dataInputValidation(int lowerBound, int upperbound){
+        Scanner menuInput = new Scanner(System.in);  // Create a Scanner object
+        DataValidator menuInputTest = new DataValidator(lowerBound, upperbound);  // Create a DataValidator object
+        if(menuInput.hasNextInt()) {} else {menuInputTest.errorMessage();} // Test if input is an integer
+        int menuSelect = menuInput.nextInt(); // Saving input as an integer
+        menuInputTest.testBoundary(menuSelect); // Test if input is within the boundary
+        return menuSelect;
     }
 }
