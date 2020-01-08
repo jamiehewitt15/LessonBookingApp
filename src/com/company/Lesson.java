@@ -1,7 +1,6 @@
 package com.company;
 
-import static com.company.CustomerList.currentUser;
-import static com.company.Schedule.lessonCapacity;
+import java.security.PrivateKey;
 
 public class Lesson {
     private String lessonName; // Name of the ETC lesson.
@@ -12,15 +11,17 @@ public class Lesson {
     private Rating ratings; // Ratings object for the lesson
     private int totalAttendance = 0; // total lesson attendance on all days combined
     private int earnings = 0; // Earnings from the lesson = lessonPrice * totalAttendance
-    private String[][] lessonStudents = new String[8][lessonCapacity]; // Create array to store the names of students enrolled in lesson
+    private int lessonCapacity;
+    private String[][] lessonStudents = new String[8][5]; // Create array to store the names of students enrolled in lesson
 
 
     // Lesson constructor
-    public Lesson(String name, int time, int price, boolean[] day) {
+    public Lesson(String name, int time, int price, boolean[] day, int lessonCapacity) {
         this.setLessonName(name);
         this.setLessonTime(time);
         this.setLessonPrice(price);
         this.setDay(day);
+        this.setLessonCapacity(lessonCapacity);
         this.ratings = new Rating();
     }
 
@@ -45,11 +46,15 @@ public class Lesson {
     public void setEarnings(){this.earnings = this.totalAttendance * lessonPrice; }
     public void setRating(Rating i){ this.ratings = i; }
     public void removeStudent(int i, int j){ this.lessonStudents[i][j] = "";}
-    public void setLessonStudents(int i){
+    public void setLessonCapacity(int lessonCapacity)
+    {
+        this.lessonCapacity = lessonCapacity;
+    }
+    public void setLessonStudents(int i, CustomerList customerList){
         int j;
         if (getLessonAttendance(i) < lessonCapacity) { // Check that the lesson is not already full
             j = getLessonAttendance(i);
-            this.lessonStudents[i][j] = currentUser.getName();} // Add the current student's name to the LessonStudents[][] array
+            this.lessonStudents[i][j] = customerList.currentUser.getName();} // Add the current student's name to the LessonStudents[][] array
         else { System.out.println("Sorry, Lesson is full.");}
         }
 

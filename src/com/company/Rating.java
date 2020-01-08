@@ -1,8 +1,6 @@
 package com.company;
 
 import java.util.ArrayList; // import the ArrayList lesson
-import static com.company.Menu.menu; // import the menu() method from the Menu lesson
-import static com.company.Schedule.schedule; // import the schedule[] array from the Schedule lesson
 
 public class Rating {
     ArrayList<Integer> ratings = new ArrayList<Integer>(); // Create an ArrayList object to store all of the ratings
@@ -17,13 +15,14 @@ public class Rating {
     public double getAverage(){ return average; }
 
     // method to add rating to arrayList
-    public void addRating(int x){
+    public boolean addRating(int x){
         if (x <= 5 && x >= 1){
             ratings.add(x);
             setAverage();
+            return true;
         } else {
             System.out.println("Invalid Input\nAn integer is required between 1 and 5");
-            menu();
+            return false;
         }
     }
 
@@ -36,8 +35,8 @@ public class Rating {
         this.average = sum / getNumOfRatings(); }
 
     // method print the name of the lesson, average rating and the number of reviews.
-    public static void ratingString(int x){
-        System.out.println(schedule[x].getLessonName() + "\n\t->\tAverage rating: " + schedule[x].getRating().getAverage() + " | Number of reviews: " + schedule[x].getRating().getNumOfRatings() + " reviews.");
+    public void ratingString(int x, Schedule schedule){
+        System.out.println(schedule.scheduleArray[x].getLessonName() + "\n\t->\tAverage rating: " + schedule.scheduleArray[x].getRating().getAverage() + " | Number of reviews: " + schedule.scheduleArray[x].getRating().getNumOfRatings() + " reviews.");
     }
 
 }

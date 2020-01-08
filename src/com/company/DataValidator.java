@@ -2,8 +2,6 @@ package com.company;
 
 import java.util.Scanner;
 
-import static com.company.Menu.menu;
-
 public class DataValidator {
     private int lowerBoundary = 0; // initialising lower boundary variable
     private int upperBoundary = 15; // initialising upper boundary variable
@@ -28,9 +26,9 @@ public class DataValidator {
     }
 
     // Print error message
-    public void errorMessage(){
+    public boolean errorMessage(){
         System.out.println("Invalid Input\nAn integer is required between " + lowerBoundary + " and " + upperBoundary);
-        menu();
+        return false;
     }
 
     public static int dataInputValidation(int lowerBound, int upperbound){

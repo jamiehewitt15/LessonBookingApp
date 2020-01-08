@@ -6,10 +6,10 @@ import java.util.Scanner;
 import static com.company.DataValidator.dataInputValidation;
 
 public class CustomerList {
-    public static HashMap<String, Customer> customerList = new HashMap<String, Customer>();
-    public static Customer currentUser;
+    public HashMap<String, Customer> customerList = new HashMap<String, Customer>();
+    public Customer currentUser;
 
-    public static void loginOrNewUser(){
+    public void loginOrNewUser(){
         System.out.println("Would you like to login or create a new user? (enter 1 or 2)\n1 : Login\n2 : Create new user");
 
         int loginChoice = dataInputValidation(1, 2);
@@ -23,7 +23,7 @@ public class CustomerList {
         }
     }
 
-    private static void login(){
+    private void login(){
         String userName = enterUserName();
         currentUser = customerList.get(userName);
         if(currentUser == null){
@@ -31,21 +31,21 @@ public class CustomerList {
             loginOrNewUser();} ;
     }
 
-    private static void newCustomer() {
+    private void newCustomer() {
         System.out.println("Welcome to the ETC Lesson booking program");
         String userName = enterUserName();
         currentUser = new Customer(userName); // Create new customer object
         customerList.put(userName, currentUser);
         System.out.println("Logged in user is: " + currentUser.getName() );  // Confirm logged in & output user input
     }
-    private static String enterUserName(){
+    private String enterUserName(){
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Please enter a username:");
         String userInput = myObj.nextLine();  // Read user input
         return userInput;
     }
 
-    public static void createCustomers(){
+    public void createCustomers(){
         Customer Jamie = new Customer("Jamie");
         Customer John = new Customer("John");
         Customer Emma = new Customer("Emma");
@@ -86,7 +86,6 @@ public class CustomerList {
         customerList.put("Hannah", Hannah);
         customerList.put("Luke", Luke);
     }
-
 
 
 }
