@@ -68,7 +68,9 @@ public class Schedule {
 
         System.out.println("\nEnter the number to book the lesson:");
 
-        int lessonChoice = dataInputValidation(1, openDays.length);
+        int lessonChoice = dataInputValidation(0, openDays.length);
+        if (lessonChoice == -1){bookLesson(customerList);} // redirect after error
+
 
         scheduleArray[lessonChoice].increaseLessonAttendance(dayChoice); // Update attendance for this Lesson on the chosen day
         scheduleArray[lessonChoice].setTotalAttendance(); // Update overall attendance count for this Lesson
@@ -86,8 +88,11 @@ public class Schedule {
             System.out.println(dayCount +": "+i); // Print options for days when lessons can be booked.
             dayCount++;
         }
+
         int dayChoice = dataInputValidation(1, openDays.length);
+        if (dayChoice == -1){dayChoice = chooseDay() + 1;} // redirect after error
         return --dayChoice;
+
     }
 
     private int showSchedule(int dayChoice, int time, String title, int maxLessons, int dayLessonCount){ // Create schedule for the chosen day at given time "\nMorning Lesson\n\t"
@@ -114,7 +119,7 @@ public class Schedule {
     private void choosePayment(int lessonChoice){
         System.out.println("\nHow would you like to pay?\n1 : Card\n2 : Cash");
         int paymentChoice = dataInputValidation(1, 2);
-
+        if (paymentChoice == -1){choosePayment(lessonChoice);} // redirect after error
         switch (paymentChoice){
             case 1:
                 System.out.println("\nPlease bring your card with you to the lesson to pay £" + scheduleArray[lessonChoice].getLessonPrice());

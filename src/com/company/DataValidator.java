@@ -19,24 +19,31 @@ public class DataValidator {
     } // set the upper boundary for testing
 
     // Test if the input falls between the boundaries
-    public void testBoundary(int x){
-        if (x >= lowerBoundary && x <= upperBoundary){ } else {
+    public int testBoundary(int x){
+        if (x >= lowerBoundary && x <= upperBoundary){
+            return x;
+        } else {
             errorMessage();
+            return -1; // returns -1 if input is outside the boundary
         }
     }
 
     // Print error message
-    public boolean errorMessage(){
+    public int errorMessage(){
         System.out.println("Invalid Input\nAn integer is required between " + lowerBoundary + " and " + upperBoundary);
-        return false;
+        return -1;
     }
 
-    public static int dataInputValidation(int lowerBound, int upperbound){
+    public static int dataInputValidation(int lowerBound, int upperBound){
         Scanner menuInput = new Scanner(System.in);  // Create a Scanner object
-        DataValidator menuInputTest = new DataValidator(lowerBound, upperbound);  // Create a DataValidator object
-        if(menuInput.hasNextInt()) {} else {menuInputTest.errorMessage();} // Test if input is an integer
-        int menuSelect = menuInput.nextInt(); // Saving input as an integer
-        menuInputTest.testBoundary(menuSelect); // Test if input is within the boundary
-        return menuSelect;
+        DataValidator menuInputTest = new DataValidator(lowerBound, upperBound);  // Create a DataValidator object
+        int menuSelect;
+        if(menuInput.hasNextInt()) {
+            menuSelect = menuInput.nextInt(); // Saving input as an integer
+            menuSelect = menuInputTest.testBoundary(menuSelect); // Test if input is within the boundary
+        } else {
+            menuSelect = menuInputTest.errorMessage(); } // Test if input is an integer
+
+        return menuSelect; // returns -1 if input is outside the boundary
     }
 }

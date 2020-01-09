@@ -54,7 +54,8 @@ public class Lesson {
         int j;
         if (getLessonAttendance(i) < lessonCapacity) { // Check that the lesson is not already full
             j = getLessonAttendance(i);
-            this.lessonStudents[i][j] = customerList.currentUser.getName();} // Add the current student's name to the LessonStudents[][] array
+
+            this.lessonStudents[i][j] = customerList.currentUser.getName(); } // Add the current student's name to the LessonStudents[][] array
         else { System.out.println("Sorry, Lesson is full.");}
         }
 

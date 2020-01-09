@@ -10,9 +10,11 @@ public class CustomerList {
     public Customer currentUser;
 
     public void loginOrNewUser(){
-        System.out.println("Would you like to login or create a new user? (enter 1 or 2)\n1 : Login\n2 : Create new user");
+        System.out.println("\nWould you like to login or create a new user? (enter 1 or 2)\n1 : Login\n2 : Create new user");
 
         int loginChoice = dataInputValidation(1, 2);
+        if (loginChoice == -1){loginOrNewUser();} // redirect after error
+
         switch (loginChoice){
             case 1:
                 login();
@@ -28,7 +30,10 @@ public class CustomerList {
         currentUser = customerList.get(userName);
         if(currentUser == null){
             System.out.println("Username not recognised");
-            loginOrNewUser();} ;
+            loginOrNewUser();}
+        else{
+            System.out.println("Logged in user is: " + currentUser.getName() );  // Confirm logged in & output user input
+        }
     }
 
     private void newCustomer() {
