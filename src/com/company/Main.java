@@ -14,7 +14,7 @@ public class Main {
         mainCustomerList.loginOrNewUser(); // user logs in or creates a new user
 
         mainSchedule.initiateSchedule(); // create the lesson schedule for bookings
-
+        mainSchedule.createTestData(mainCustomerList); // create bookings with test data
         mainMenu.showMenu(mainSchedule, mainCustomerList); // Menu is displayed, user chooses options then get redirected to the mainMenu
 
     }

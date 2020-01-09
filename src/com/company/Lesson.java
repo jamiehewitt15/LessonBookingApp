@@ -1,7 +1,5 @@
 package com.company;
 
-import java.security.PrivateKey;
-
 public class Lesson {
     private String lessonName; // Name of the ETC lesson.
     private int lessonTime = 0; // Time of day that the lesson runs.
@@ -50,12 +48,12 @@ public class Lesson {
     {
         this.lessonCapacity = lessonCapacity;
     }
-    public void setLessonStudents(int i, CustomerList customerList){
+    public void setLessonStudents(int day, CustomerList customerList){
         int j;
-        if (getLessonAttendance(i) < lessonCapacity) { // Check that the lesson is not already full
-            j = getLessonAttendance(i);
+        if (getLessonAttendance(day) < lessonCapacity) { // Check that the lesson is not already full
+            j = getLessonAttendance(day);
 
-            this.lessonStudents[i][j] = customerList.currentUser.getName(); } // Add the current student's name to the LessonStudents[][] array
+            this.lessonStudents[day][j] = customerList.currentUser.getName(); } // Add the current student's name to the LessonStudents[][] array
         else { System.out.println("Sorry, Lesson is full.");}
         }
 

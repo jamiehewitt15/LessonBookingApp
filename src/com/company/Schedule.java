@@ -71,11 +71,7 @@ public class Schedule {
         int lessonChoice = dataInputValidation(0, openDays.length);
         if (lessonChoice == -1){bookLesson(customerList);} // redirect after error
 
-
-        scheduleArray[lessonChoice].increaseLessonAttendance(dayChoice); // Update attendance for this Lesson on the chosen day
-        scheduleArray[lessonChoice].setTotalAttendance(); // Update overall attendance count for this Lesson
-        scheduleArray[lessonChoice].setEarnings(); // Update overall earnings generated from this Lesson
-        scheduleArray[lessonChoice].setLessonStudents(dayChoice, customerList); // Add current customer name to list of students enrolled in this Lesson on this day
+        bookingEntry(dayChoice, lessonChoice, customerList, customerList.currentUser);
 
         bookingConfirmation(lessonChoice, dayChoice); // Print out confirmation of the booking.
         choosePayment(lessonChoice); // Payment request
@@ -128,5 +124,40 @@ public class Schedule {
                 System.out.println("\nPlease bring £" + scheduleArray[lessonChoice].getLessonPrice() + " cash with you to the lesson");
                 break;
         }
+    }
+
+    private void bookingEntry(int dayChoice, int lessonChoice, CustomerList customerList, Customer user){
+        scheduleArray[lessonChoice].increaseLessonAttendance(dayChoice); // Update attendance for this Lesson on the chosen day
+        scheduleArray[lessonChoice].setTotalAttendance(); // Update overall attendance count for this Lesson
+        scheduleArray[lessonChoice].setEarnings(); // Update overall earnings generated from this Lesson
+        customerList.currentUser = user;
+        scheduleArray[lessonChoice].setLessonStudents(dayChoice, customerList);
+
+    }
+
+    public void createTestData(CustomerList customerList){
+        bookingEntry(1, 0, customerList, customerList.customerListArray.get("jamie"));
+        bookingEntry(1, 0, customerList, customerList.customerListArray.get("rachel"));
+        bookingEntry(0, 1, customerList, customerList.customerListArray.get("john"));
+        bookingEntry(1, 2, customerList, customerList.customerListArray.get("emma"));
+        bookingEntry(1, 3, customerList, customerList.customerListArray.get("olivia"));
+        bookingEntry(2, 1, customerList, customerList.customerListArray.get("isabella"));
+        bookingEntry(2, 2, customerList, customerList.customerListArray.get("charlotte"));
+        bookingEntry(2, 4, customerList, customerList.customerListArray.get("emily"));
+        bookingEntry(3, 0, customerList, customerList.customerListArray.get("liam"));
+        bookingEntry(3, 1, customerList, customerList.customerListArray.get("william"));
+        bookingEntry(3, 2, customerList, customerList.customerListArray.get("oliver"));
+        bookingEntry(4, 4, customerList, customerList.customerListArray.get("benjamin"));
+        bookingEntry(4, 1, customerList, customerList.customerListArray.get("jacob"));
+        bookingEntry(4, 5, customerList, customerList.customerListArray.get("thomas"));
+        bookingEntry(5, 0, customerList, customerList.customerListArray.get("christopher"));
+        bookingEntry(5, 0, customerList, customerList.customerListArray.get("victoria"));
+        bookingEntry(5, 0, customerList, customerList.customerListArray.get("chloe"));
+        bookingEntry(6, 6, customerList, customerList.customerListArray.get("hannah"));
+        bookingEntry(6, 7, customerList, customerList.customerListArray.get("luke"));
+        bookingEntry(6, 8, customerList, customerList.customerListArray.get("jamie"));
+        bookingEntry(7, 7, customerList, customerList.customerListArray.get("rachel"));
+        bookingEntry(7, 8, customerList, customerList.customerListArray.get("john"));
+        bookingEntry(7, 9, customerList, customerList.customerListArray.get("emma"));
     }
 }

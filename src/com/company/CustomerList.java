@@ -6,7 +6,7 @@ import java.util.Scanner;
 import static com.company.DataValidator.dataInputValidation;
 
 public class CustomerList {
-    public HashMap<String, Customer> customerList = new HashMap<String, Customer>();
+    public HashMap<String, Customer> customerListArray = new HashMap<String, Customer>();
     public Customer currentUser;
 
     public void loginOrNewUser(){
@@ -27,7 +27,7 @@ public class CustomerList {
 
     private void login(){
         String userName = enterUserName();
-        currentUser = customerList.get(userName);
+        currentUser = customerListArray.get(userName);
         if(currentUser == null){
             System.out.println("Username not recognised");
             loginOrNewUser();}
@@ -40,13 +40,14 @@ public class CustomerList {
         System.out.println("Welcome to the ETC Lesson booking program");
         String userName = enterUserName();
         currentUser = new Customer(userName); // Create new customer object
-        customerList.put(userName, currentUser);
+        customerListArray.put(userName, currentUser);
         System.out.println("Logged in user is: " + currentUser.getName() );  // Confirm logged in & output user input
     }
     private String enterUserName(){
         Scanner myObj = new Scanner(System.in);  // Create a Scanner object
         System.out.println("Please enter a username:");
         String userInput = myObj.nextLine();  // Read user input
+        userInput = userInput.toLowerCase();
         return userInput;
     }
 
@@ -70,26 +71,28 @@ public class CustomerList {
         Customer Chloe = new Customer("Chloe");
         Customer Hannah = new Customer("Hannah");
         Customer Luke = new Customer("Luke");
+        Customer Rachel = new Customer("Rachel");
 
-        customerList.put("Jamie", Jamie);
-        customerList.put("John", John);
-        customerList.put("Emma", Emma);
-        customerList.put("Olivia", Olivia);
-        customerList.put("Isabella", Isabella);
-        customerList.put("Charlotte", Charlotte);
-        customerList.put("Emily", Emily);
-        customerList.put("Liam", Liam);
-        customerList.put("William", William);
-        customerList.put("James", James);
-        customerList.put("Oliver", Oliver);
-        customerList.put("Benjamin", Benjamin);
-        customerList.put("Jacob", Jacob);
-        customerList.put("Thomas", Thomas);
-        customerList.put("Christopher", Christopher);
-        customerList.put("Victoria", Victoria);
-        customerList.put("Chloe", Chloe);
-        customerList.put("Hannah", Hannah);
-        customerList.put("Luke", Luke);
+        customerListArray.put("jamie", Jamie);
+        customerListArray.put("rachel", Rachel);
+        customerListArray.put("john", John);
+        customerListArray.put("emma", Emma);
+        customerListArray.put("olivia", Olivia);
+        customerListArray.put("isabella", Isabella);
+        customerListArray.put("charlotte", Charlotte);
+        customerListArray.put("emily", Emily);
+        customerListArray.put("liam", Liam);
+        customerListArray.put("william", William);
+        customerListArray.put("james", James);
+        customerListArray.put("oliver", Oliver);
+        customerListArray.put("benjamin", Benjamin);
+        customerListArray.put("jacob", Jacob);
+        customerListArray.put("thomas", Thomas);
+        customerListArray.put("christopher", Christopher);
+        customerListArray.put("victoria", Victoria);
+        customerListArray.put("chloe", Chloe);
+        customerListArray.put("hannah", Hannah);
+        customerListArray.put("luke", Luke);
     }
 
 
