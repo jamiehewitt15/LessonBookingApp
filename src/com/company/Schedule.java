@@ -68,7 +68,7 @@ public class Schedule {
 
         System.out.println("\nEnter the number to book the lesson:");
 
-        int lessonChoice = dataInputValidation(0, openDays.length);
+        int lessonChoice = dataInputValidation(0, scheduleArray.length);
         if (lessonChoice == -1){bookLesson(customerList);} // redirect after error
 
         bookingEntry(dayChoice, lessonChoice, customerList, customerList.currentUser);
@@ -136,28 +136,61 @@ public class Schedule {
     }
 
     public void createTestData(CustomerList customerList){
-        bookingEntry(1, 0, customerList, customerList.customerListArray.get("jamie"));
-        bookingEntry(1, 0, customerList, customerList.customerListArray.get("rachel"));
+        bookingEntry(0, 0, customerList, customerList.customerListArray.get("jamie"));
+        bookingEntry(0, 0, customerList, customerList.customerListArray.get("rachel"));
         bookingEntry(0, 1, customerList, customerList.customerListArray.get("john"));
         bookingEntry(1, 2, customerList, customerList.customerListArray.get("emma"));
-        bookingEntry(1, 3, customerList, customerList.customerListArray.get("olivia"));
+        bookingEntry(1, 5, customerList, customerList.customerListArray.get("olivia"));
         bookingEntry(2, 1, customerList, customerList.customerListArray.get("isabella"));
         bookingEntry(2, 2, customerList, customerList.customerListArray.get("charlotte"));
-        bookingEntry(2, 4, customerList, customerList.customerListArray.get("emily"));
-        bookingEntry(3, 0, customerList, customerList.customerListArray.get("liam"));
-        bookingEntry(3, 1, customerList, customerList.customerListArray.get("william"));
-        bookingEntry(3, 2, customerList, customerList.customerListArray.get("oliver"));
-        bookingEntry(4, 4, customerList, customerList.customerListArray.get("benjamin"));
-        bookingEntry(4, 1, customerList, customerList.customerListArray.get("jacob"));
-        bookingEntry(4, 5, customerList, customerList.customerListArray.get("thomas"));
-        bookingEntry(5, 0, customerList, customerList.customerListArray.get("christopher"));
-        bookingEntry(5, 0, customerList, customerList.customerListArray.get("victoria"));
-        bookingEntry(5, 0, customerList, customerList.customerListArray.get("chloe"));
+        bookingEntry(2, 3, customerList, customerList.customerListArray.get("emily"));
+        bookingEntry(3, 4, customerList, customerList.customerListArray.get("liam"));
+        bookingEntry(3, 2, customerList, customerList.customerListArray.get("william"));
+        bookingEntry(3, 5, customerList, customerList.customerListArray.get("oliver"));
+        bookingEntry(4, 6, customerList, customerList.customerListArray.get("benjamin"));
+        bookingEntry(4, 7, customerList, customerList.customerListArray.get("jacob"));
+        bookingEntry(4, 8, customerList, customerList.customerListArray.get("thomas"));
+        bookingEntry(5, 10, customerList, customerList.customerListArray.get("christopher"));
+        bookingEntry(5, 7, customerList, customerList.customerListArray.get("victoria"));
+        bookingEntry(5, 8, customerList, customerList.customerListArray.get("chloe"));
         bookingEntry(6, 6, customerList, customerList.customerListArray.get("hannah"));
-        bookingEntry(6, 7, customerList, customerList.customerListArray.get("luke"));
-        bookingEntry(6, 8, customerList, customerList.customerListArray.get("jamie"));
-        bookingEntry(7, 7, customerList, customerList.customerListArray.get("rachel"));
-        bookingEntry(7, 8, customerList, customerList.customerListArray.get("john"));
-        bookingEntry(7, 9, customerList, customerList.customerListArray.get("emma"));
+        bookingEntry(6, 7, customerList, customerList.customerListArray.get("benjamin"));
+        bookingEntry(6, 8, customerList, customerList.customerListArray.get("jacob"));
+        bookingEntry(6, 9, customerList, customerList.customerListArray.get("thomas"));
+        bookingEntry(7, 10, customerList, customerList.customerListArray.get("luke"));
+        bookingEntry(7, 7, customerList, customerList.customerListArray.get("jamie"));
+        bookingEntry(7, 8, customerList, customerList.customerListArray.get("rachel"));
+        bookingEntry(7, 11, customerList, customerList.customerListArray.get("john"));
+        bookingEntry(7, 10, customerList, customerList.customerListArray.get("emma"));
     }
+
+    public void createTestDataRatings(Schedule schedule){
+        schedule.scheduleArray[0].getRating().addRating(2); // Add the rating and update the average.
+        schedule.scheduleArray[1].getRating().addRating(2); // Add the rating and update the average.
+        schedule.scheduleArray[2].getRating().addRating(3); // Add the rating and update the average.
+        schedule.scheduleArray[5].getRating().addRating(4); // Add the rating and update the average.
+        schedule.scheduleArray[1].getRating().addRating(5); // Add the rating and update the average.
+        schedule.scheduleArray[2].getRating().addRating(5); // Add the rating and update the average.
+        schedule.scheduleArray[3].getRating().addRating(5); // Add the rating and update the average.
+        schedule.scheduleArray[4].getRating().addRating(4); // Add the rating and update the average.
+        schedule.scheduleArray[2].getRating().addRating(5); // Add the rating and update the average.
+        schedule.scheduleArray[5].getRating().addRating(4); // Add the rating and update the average.
+        schedule.scheduleArray[6].getRating().addRating(3); // Add the rating and update the average.
+        schedule.scheduleArray[7].getRating().addRating(4); // Add the rating and update the average.
+        schedule.scheduleArray[8].getRating().addRating(3); // Add the rating and update the average.
+        schedule.scheduleArray[10].getRating().addRating(2); // Add the rating and update the average.
+        schedule.scheduleArray[7].getRating().addRating(4); // Add the rating and update the average.
+        schedule.scheduleArray[8].getRating().addRating(3); // Add the rating and update the average.
+        schedule.scheduleArray[6].getRating().addRating(5); // Add the rating and update the average.
+        schedule.scheduleArray[7].getRating().addRating(5); // Add the rating and update the average.
+        schedule.scheduleArray[8].getRating().addRating(5); // Add the rating and update the average.
+        schedule.scheduleArray[9].getRating().addRating(5); // Add the rating and update the average.
+        schedule.scheduleArray[10].getRating().addRating(4); // Add the rating and update the average.
+        schedule.scheduleArray[7].getRating().addRating(3); // Add the rating and update the average.
+        schedule.scheduleArray[8].getRating().addRating(4); // Add the rating and update the average.
+        schedule.scheduleArray[11].getRating().addRating(3); // Add the rating and update the average.
+        schedule.scheduleArray[10].getRating().addRating(1); // Add the rating and update the average.
+    }
+
+
 }

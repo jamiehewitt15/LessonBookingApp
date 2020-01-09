@@ -15,6 +15,7 @@ public class Main {
 
         mainSchedule.initiateSchedule(); // create the lesson schedule for bookings
         mainSchedule.createTestData(mainCustomerList); // create bookings with test data
+        mainSchedule.createTestDataRatings(mainSchedule); // create ratings with test data
         mainMenu.showMenu(mainSchedule, mainCustomerList); // Menu is displayed, user chooses options then get redirected to the mainMenu
 
     }

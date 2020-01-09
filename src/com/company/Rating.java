@@ -5,6 +5,8 @@ import java.util.ArrayList; // import the ArrayList lesson
 public class Rating {
     ArrayList<Integer> ratings = new ArrayList<Integer>(); // Create an ArrayList object to store all of the ratings
     private double average = 0; // Storing the average rating so it is more easily retrieved.
+    private int maxRating = 5;
+    private int minRating = 1;
 
     public Rating(){
         this.average = 0;
@@ -15,9 +17,9 @@ public class Rating {
     public double getAverage(){ return average; }
 
     // method to add rating to arrayList
-    public boolean addRating(int x){
-        if (x <= 5 && x >= 1){
-            ratings.add(x);
+    public boolean addRating(int rating){
+        if (rating <= maxRating && rating >= minRating){
+            ratings.add(rating);
             setAverage();
             return true;
         } else {
@@ -38,6 +40,8 @@ public class Rating {
     public void ratingString(int x, Schedule schedule){
         System.out.println(schedule.scheduleArray[x].getLessonName() + "\n\t->\tAverage rating: " + schedule.scheduleArray[x].getRating().getAverage() + " | Number of reviews: " + schedule.scheduleArray[x].getRating().getNumOfRatings() + " reviews.");
     }
+
+
 
 }
 

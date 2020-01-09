@@ -13,7 +13,7 @@ public class Menu {
 
     public void showMenu(Schedule schedule, CustomerList customerList) {
 
-            System.out.println("\nEnter the number to select:\n");
+            System.out.println("\n\nEnter the number to select:\n");
             int optionCount = 1;
             for (String i : menuOptions) { // Looping through menuOptions array to show the menu
                 System.out.println(optionCount +" : "+i); // Print menu options.
@@ -74,7 +74,7 @@ public class Menu {
     }
 
     private void rateLesson(Schedule schedule){
-        System.out.println("\nWhich Lesson would you like to review?\n");
+        System.out.println("\nWhich Lesson would you like to rate?\n");
         int lessonCount = 1;
         for (Lesson lessonObject : schedule.scheduleArray) {
             System.out.println(lessonCount +": "+ lessonObject.getLessonName() ); // Show options for days when lessons can be booked.
@@ -84,14 +84,14 @@ public class Menu {
         int ratingSelect = dataInputValidation(1, schedule.scheduleArray.length); // Test for valid user input and save input
         if (ratingSelect == -1){rateLesson(schedule);}
 
-        System.out.println("\nPlease type your review (1-5) for " + schedule.scheduleArray[ratingSelect].getLessonName() + ":\n1: Very dissatisfied\n2: Dissatisfied\n3: Ok\n4: Satisfied\n5: Very Satisfied");// code block
+        System.out.println("\nPlease type your rating (1-5) for " + schedule.scheduleArray[ratingSelect].getLessonName() + ":\n1: Very dissatisfied\n2: Dissatisfied\n3: Ok\n4: Satisfied\n5: Very Satisfied");// code block
 
         int ratingInput = dataInputValidation(1, 5); // Test for valid user input and save input
         if (ratingSelect == -1){rateLesson(schedule);}
 
         schedule.scheduleArray[ratingSelect].getRating().addRating(ratingInput); // Add the rating and update the average.
 
-        System.out.println("\nThank you for your review.\nYou have rated " + schedule.scheduleArray[ratingSelect].getLessonName() + " " + ratingInput + " out of 5\n");// Show rating in output
+        System.out.println("\nThank you for your rating.\nYou have rated " + schedule.scheduleArray[ratingSelect].getLessonName() + " " + ratingInput + " out of 5\n");// Show rating in output
         Rating reviewRating = new Rating();
         reviewRating.ratingString(ratingSelect, schedule);
     }
