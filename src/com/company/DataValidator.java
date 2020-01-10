@@ -19,7 +19,7 @@ public class DataValidator {
     } // set the upper boundary for testing
 
     // Test if the input falls between the boundaries
-    public int testBoundary(int x){
+    private int testBoundary(int x){
         if (x >= lowerBoundary && x <= upperBoundary){
             return x;
         } else {
@@ -29,7 +29,7 @@ public class DataValidator {
     }
 
     // Print error message
-    public int errorMessage(){
+    private int errorMessage(){
         System.out.println("Invalid Input\nAn integer is required between " + lowerBoundary + " and " + upperBoundary);
         return -1;
     }

@@ -124,10 +124,10 @@ public class Menu {
     }
 
     private void changeLesson(Schedule schedule, CustomerList customerList){
+        System.out.println("\nEnter the number of the lesson you would like to cancel:");
         ArrayList<int[]> deleteOptions = showBookedLessons(schedule, customerList);
         int deleteChoice = dataInputValidation(1, (schedule.scheduleArray.length*8* schedule.maxLessonsPerDay)); // Test for valid user input and save input
         if (deleteChoice == -1){changeLesson(schedule, customerList);} // redirect after error
-
         int reBookChoice = cancelLesson(deleteOptions, deleteChoice, schedule, customerList);
         switch (reBookChoice){
             case 1:
@@ -174,7 +174,8 @@ public class Menu {
         }
 
         // Print message to confirm lesson booking has been cancelled.
-        System.out.println("You have been removed from " + schedule.scheduleArray[options.get(choice-1)[1]].getLessonName() + " on " + schedule.getOpenDays(options.get(choice-1)[1]) + " at " + schedule.scheduleArray[options.get(choice-1)[1]].getLessonTime() + ":00");// Print lessons
+        System.out.println("You have been removed from " + schedule.scheduleArray[options.get(choice-1)[1]].getLessonName() + " on " + schedule.getOpenDays(options.get(choice-1)[2]) + " at " + schedule.scheduleArray[options.get(choice-1)[1]].getLessonTime() + ":00");// Print lessons
+
         // Give user the opportunity to book another lesson
         System.out.println("\nWould you like to book another lesson:\n1 : Yes\n2 : No");
 

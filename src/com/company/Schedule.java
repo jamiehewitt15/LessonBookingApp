@@ -20,7 +20,7 @@ public class Schedule {
 
 
     public Lesson[] scheduleArray = new Lesson[12]; // creating the array that will hold the schedule. If new Lessons are added the size of this array needs to be changed
-    public String[] getOpenDays() { return openDays;} // Method to return openDays array
+    public String[] getOpenDaysArray() { return openDays;} // Method to return openDays array
     public String getOpenDays(int i) { return openDays[i];} // Method to return individual openDays strings
     public void initiateSchedule() { // this method is called at the start of Main to create the schedule.
 
@@ -170,26 +170,26 @@ public class Schedule {
         schedule.scheduleArray[2].getRating().addRating(3); // Add the rating and update the average.
         schedule.scheduleArray[5].getRating().addRating(4); // Add the rating and update the average.
         schedule.scheduleArray[1].getRating().addRating(5); // Add the rating and update the average.
-        schedule.scheduleArray[2].getRating().addRating(5); // Add the rating and update the average.
+        schedule.scheduleArray[2].getRating().addRating(2); // Add the rating and update the average.
         schedule.scheduleArray[3].getRating().addRating(5); // Add the rating and update the average.
         schedule.scheduleArray[4].getRating().addRating(4); // Add the rating and update the average.
-        schedule.scheduleArray[2].getRating().addRating(5); // Add the rating and update the average.
+        schedule.scheduleArray[2].getRating().addRating(4); // Add the rating and update the average.
         schedule.scheduleArray[5].getRating().addRating(4); // Add the rating and update the average.
         schedule.scheduleArray[6].getRating().addRating(3); // Add the rating and update the average.
-        schedule.scheduleArray[7].getRating().addRating(4); // Add the rating and update the average.
+        schedule.scheduleArray[7].getRating().addRating(2); // Add the rating and update the average.
         schedule.scheduleArray[8].getRating().addRating(3); // Add the rating and update the average.
-        schedule.scheduleArray[10].getRating().addRating(2); // Add the rating and update the average.
+        schedule.scheduleArray[10].getRating().addRating(1); // Add the rating and update the average.
         schedule.scheduleArray[7].getRating().addRating(4); // Add the rating and update the average.
         schedule.scheduleArray[8].getRating().addRating(3); // Add the rating and update the average.
         schedule.scheduleArray[6].getRating().addRating(5); // Add the rating and update the average.
         schedule.scheduleArray[7].getRating().addRating(5); // Add the rating and update the average.
         schedule.scheduleArray[8].getRating().addRating(5); // Add the rating and update the average.
         schedule.scheduleArray[9].getRating().addRating(5); // Add the rating and update the average.
-        schedule.scheduleArray[10].getRating().addRating(4); // Add the rating and update the average.
+        schedule.scheduleArray[10].getRating().addRating(2); // Add the rating and update the average.
         schedule.scheduleArray[7].getRating().addRating(3); // Add the rating and update the average.
         schedule.scheduleArray[8].getRating().addRating(4); // Add the rating and update the average.
         schedule.scheduleArray[11].getRating().addRating(3); // Add the rating and update the average.
-        schedule.scheduleArray[10].getRating().addRating(1); // Add the rating and update the average.
+        schedule.scheduleArray[10].getRating().addRating(3); // Add the rating and update the average.
     }
 
 

@@ -35,16 +35,16 @@ public class Report {
         // Find the lesson with the highest rating
         Lesson highestRating = schedule.scheduleArray[0];
         for (int i = 1; i < schedule.scheduleArray.length; i++) {
-            if(highestRating.getRating().getAverage() < schedule.scheduleArray[i].getRating().getAverage()){
+            if(highestRating.getRating().getAverageRating() < schedule.scheduleArray[i].getRating().getAverageRating()){
                 highestRating = schedule.scheduleArray[i];
             };
         }
 
         // Check if the highest is zero, otherwise print it out
-        if(highestRating.getRating().getAverage() == 0){
+        if(highestRating.getRating().getAverageRating() == 0){
             System.out.println("\nThere have been no ratings\n____________________");//
         } else{
-            System.out.println("\nThe highest rated lesson is " + highestRating.getLessonName() + ": " + highestRating.getRating().getAverage() + " out of 5 (" + highestRating.getRating().getNumOfRatings() + " ratings)" + "\n____________________");//
+            System.out.println("\nThe highest rated lesson is " + highestRating.getLessonName() + ": " + highestRating.getRating().getAverageRating() + " out of 5 (" + highestRating.getRating().getNumOfRatings() + " ratings)" + "\n____________________");//
         }
 
         // Print average rating for each lesson
@@ -72,7 +72,7 @@ public class Report {
         }
 
         // Print attendance for each lesson on each day
-        for (int i = 0; i < schedule.getOpenDays().length; i++) {
+        for (int i = 0; i < schedule.getOpenDaysArray().length; i++) {
             int count = 1;
             System.out.println("\n\nLesson attendance on: " + schedule.getOpenDays(i) ); // Show options for days when lessons can be booked.
             for (int j = 0; j < schedule.scheduleArray.length; j++) {
