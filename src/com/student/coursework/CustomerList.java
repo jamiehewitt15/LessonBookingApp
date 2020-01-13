@@ -1,9 +1,10 @@
-package com.company;
+package com.student.coursework;
+
+// Programming and Program Design
+// Student Number: 18023219
 
 import java.util.HashMap; // import the HashMap class
 import java.util.Scanner;
-
-import static com.company.DataValidator.dataInputValidation;
 
 public class CustomerList {
     public HashMap<String, Customer> customerListArray = new HashMap<String, Customer>();
@@ -12,7 +13,7 @@ public class CustomerList {
     public void loginOrNewUser(){
         System.out.println("\nWould you like to login or create a new user? (enter 1 or 2)\n1 : Login\n2 : Create new user");
 
-        int loginChoice = dataInputValidation(1, 2);
+        int loginChoice = DataValidator.dataInputValidation(1, 2);
         if (loginChoice == -1){loginOrNewUser();} // redirect after error
 
         switch (loginChoice){

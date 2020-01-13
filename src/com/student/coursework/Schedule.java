@@ -1,6 +1,7 @@
-package com.company;
+package com.student.coursework;
 
-import static com.company.DataValidator.dataInputValidation;
+// Programming and Program Design
+// Student Number: 18023219
 
 public class Schedule {
     public final int maxLessonsPerDay = 4; // Maximum number of Lesson per day
@@ -68,7 +69,7 @@ public class Schedule {
 
         System.out.println("\nEnter the number to book the lesson:");
 
-        int lessonChoice = dataInputValidation(0, scheduleArray.length);
+        int lessonChoice = DataValidator.dataInputValidation(0, scheduleArray.length);
         if (lessonChoice == -1){bookLesson(customerList);} // redirect after error
 
         bookingEntry(dayChoice, lessonChoice, customerList, customerList.currentUser);
@@ -85,7 +86,7 @@ public class Schedule {
             dayCount++;
         }
 
-        int dayChoice = dataInputValidation(1, openDays.length);
+        int dayChoice = DataValidator.dataInputValidation(1, openDays.length);
         if (dayChoice == -1){dayChoice = chooseDay() + 1;} // redirect after error
         return --dayChoice;
 
@@ -114,7 +115,7 @@ public class Schedule {
     }
     private void choosePayment(int lessonChoice){
         System.out.println("\nHow would you like to pay?\n1 : Card\n2 : Cash");
-        int paymentChoice = dataInputValidation(1, 2);
+        int paymentChoice = DataValidator.dataInputValidation(1, 2);
         if (paymentChoice == -1){choosePayment(lessonChoice);} // redirect after error
         switch (paymentChoice){
             case 1:

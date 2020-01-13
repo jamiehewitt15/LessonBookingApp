@@ -1,8 +1,9 @@
-package com.company;
+package com.student.coursework;
+
+// Programming and Program Design
+// Student Number: 18023219
 
 import java.util.ArrayList;
-
-import static com.company.DataValidator.dataInputValidation;
 
 public class Menu {
 
@@ -20,7 +21,7 @@ public class Menu {
                 optionCount++;
             }
 
-            int menuSelect = dataInputValidation(1, menuOptions.length); // Test for valid user input and save input
+            int menuSelect = DataValidator.dataInputValidation(1, menuOptions.length); // Test for valid user input and save input
             if (menuSelect == -1){showMenu(schedule, customerList);} // redirect after error
 
             switch(menuSelect) {
@@ -57,7 +58,7 @@ public class Menu {
     }
     private void quit(Schedule schedule, CustomerList customerList){
         System.out.println("\n\nAre you sure you would like to quit?\nYou may lose unsaved information\n1 : Show main menu\n2 : Exit");  // Output user input
-        int menuSelect = dataInputValidation(1, 2); // Test for valid user input and save input
+        int menuSelect = DataValidator.dataInputValidation(1, 2); // Test for valid user input and save input
         if (menuSelect == -1){quit(schedule, customerList);}
 
         switch(menuSelect) {
@@ -81,12 +82,12 @@ public class Menu {
             lessonCount++;
         }
 
-        int ratingSelect = dataInputValidation(1, schedule.scheduleArray.length); // Test for valid user input and save input
+        int ratingSelect = DataValidator.dataInputValidation(1, schedule.scheduleArray.length); // Test for valid user input and save input
         if (ratingSelect == -1){rateLesson(schedule);}
 
         System.out.println("\nPlease type your rating (1-5) for " + schedule.scheduleArray[ratingSelect].getLessonName() + ":\n1: Very dissatisfied\n2: Dissatisfied\n3: Ok\n4: Satisfied\n5: Very Satisfied");// code block
 
-        int ratingInput = dataInputValidation(1, 5); // Test for valid user input and save input
+        int ratingInput = DataValidator.dataInputValidation(1, 5); // Test for valid user input and save input
         if (ratingSelect == -1){rateLesson(schedule);}
 
         schedule.scheduleArray[ratingSelect].getRating().addRating(ratingInput); // Add the rating and update the average.
@@ -106,7 +107,7 @@ public class Menu {
             reportOptionCount++;
         }
 
-        int reportChoice = dataInputValidation(1, reportOptionCount);
+        int reportChoice = DataValidator.dataInputValidation(1, reportOptionCount);
         if (reportChoice == -1){chooseReport(schedule);} // redirect after error
 
         // Switch statement selects the different report options
@@ -126,7 +127,7 @@ public class Menu {
     private void changeLesson(Schedule schedule, CustomerList customerList){
         System.out.println("\nEnter the number of the lesson you would like to cancel:");
         ArrayList<int[]> deleteOptions = showBookedLessons(schedule, customerList);
-        int deleteChoice = dataInputValidation(1, (schedule.scheduleArray.length*8* schedule.maxLessonsPerDay)); // Test for valid user input and save input
+        int deleteChoice = DataValidator.dataInputValidation(1, (schedule.scheduleArray.length*8* schedule.maxLessonsPerDay)); // Test for valid user input and save input
         if (deleteChoice == -1){changeLesson(schedule, customerList);} // redirect after error
         int reBookChoice = cancelLesson(deleteOptions, deleteChoice, schedule, customerList);
         switch (reBookChoice){
@@ -179,7 +180,7 @@ public class Menu {
         // Give user the opportunity to book another lesson
         System.out.println("\nWould you like to book another lesson:\n1 : Yes\n2 : No");
 
-        int reBookChoice = dataInputValidation(1, 2); // Test for valid user input and save input
+        int reBookChoice = DataValidator.dataInputValidation(1, 2); // Test for valid user input and save input
         if (reBookChoice == -1){showMenu(schedule, customerList);} // redirect after error
         return reBookChoice;
     }

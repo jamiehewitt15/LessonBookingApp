@@ -1,4 +1,7 @@
-package com.company;
+package com.student.coursework;
+
+// Programming and Program Design
+// Student Number: 18023219
 
 import java.util.ArrayList; // import the ArrayList lesson
 

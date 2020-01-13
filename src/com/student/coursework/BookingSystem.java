@@ -1,4 +1,4 @@
-package com.company;
+package com.student.coursework;
 
 import javax.swing.*;
 
